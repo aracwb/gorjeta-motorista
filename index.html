@@ -1,499 +1,409 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Gorjeta do Motorista Amarildon</title>
+  <title>Gorjeta do Motorista - Amarildon</title>
 
-<style>
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #10071f;
-    color: white;
-    padding: 25px 15px;
-}
-
-.container {
-    width: 100%;
-    max-width: 520px;
-    margin: auto;
-}
-
-
-/* =========================
-   CARD GERAL
-========================= */
-
-.card {
-    background: #1b1030;
-    border: 2px solid #7545b8;
-    border-radius: 25px;
-    padding: 30px 22px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-
-/* =========================
-   APRESENTAÇÃO + LOJINHA
-========================= */
-
-.apresentacao {
-    background: linear-gradient(180deg, #351160, #24103f);
-}
-
-.icone-carro {
-    font-size: 45px;
-    margin-bottom: 15px;
-}
-
-h1 {
-    font-size: 30px;
-    line-height: 1.1;
-    margin-bottom: 15px;
-}
-
-.nome {
-    color: #ffd84d;
-}
-
-.texto {
-    font-size: 17px;
-    line-height: 1.5;
-    color: #eeeeee;
-}
-
-.separador {
-    margin: 28px 0 20px;
-    color: #ffd84d;
-    font-size: 20px;
-}
-
-.lojinha-titulo {
-    color: #ffd84d;
-    font-size: 23px;
-    margin-bottom: 22px;
-}
-
-.lojinha-texto {
-    font-size: 17px;
-    line-height: 1.55;
-    color: #f2f2f2;
-}
-
-.lojinha-texto strong {
-    color: #ffd84d;
-}
-
-
-/* =========================
-   PIX - UM ÚNICO CARD
-========================= */
-
-.pix-card {
-    background: linear-gradient(180deg, #7119b4, #2d124d);
-    border: 2px solid #8e55d6;
-}
-
-.pix-titulo {
-    font-size: 30px;
-    margin-bottom: 15px;
-}
-
-.pix-titulo span {
-    color: #ffd84d;
-}
-
-.pix-texto {
-    font-size: 17px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    color: #eeeeee;
-}
-
-
-/* QR CODE */
-
-.qr-box {
-    background: white;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: 12px;
-    border-radius: 15px;
-    margin-bottom: 22px;
-}
-
-.qrcode {
-    width: 210px;
-    max-width: 100%;
-    display: block;
-}
-
-
-/* BOTÃO PIX */
-
-.botao-pix {
-    width: 100%;
-    border: none;
-    border-radius: 16px;
-    padding: 20px 15px;
-    background: linear-gradient(90deg, #ffd84d, #ff9d16);
-    color: #25102e;
-    font-size: 19px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.botao-pix:active {
-    transform: scale(0.98);
-}
-
-
-/* MENSAGEM COPIADO */
-
-.mensagem-copiado {
-    margin-top: 15px;
-    color: #9cffb1;
-    font-weight: bold;
-    display: none;
-}
-
-
-/* =========================
-   SEPARADOR PIX
-========================= */
-
-.pix-separador {
-    height: 2px;
-    background: rgba(255,255,255,0.25);
-    margin: 30px 0;
-}
-
-
-/* =========================
-   DADOS DO PIX
-========================= */
-
-.dados-pix {
-    background: #ffffff;
-    color: #29203b;
-    border-radius: 18px;
-    padding: 22px 18px;
-    text-align: left;
-}
-
-.dados-titulo {
-    text-align: center;
-    color: #4b3b70;
-    font-size: 25px;
-    margin-bottom: 20px;
-}
-
-.linha {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    padding: 13px 0;
-    border-bottom: 1px solid #d2d2d2;
-}
-
-.linha:last-child {
-    border-bottom: none;
-}
-
-.campo {
-    font-weight: bold;
-    font-size: 17px;
-}
-
-.valor {
-    text-align: right;
-    color: #554174;
-    font-weight: bold;
-    font-size: 17px;
-}
-
-.chave {
-    text-decoration: underline;
-}
-
-
-/* =========================
-   RODAPÉ
-========================= */
-
-.rodape {
-    text-align: center;
-    color: #ffd84d;
-    font-size: 16px;
-    padding: 10px 5px 25px;
-}
-
-
-/* =========================
-   CELULAR
-========================= */
-
-@media (max-width: 480px) {
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
-        padding: 20px 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0d071d;
+      color: #ffffff;
+      min-height: 100vh;
+      padding: 25px 15px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      margin: auto;
     }
 
     .card {
-        padding: 25px 18px;
-        border-radius: 22px;
+      background: linear-gradient(180deg, #2b1048 0%, #160d2b 100%);
+      border: 2px solid #7442b8;
+      border-radius: 28px;
+      padding: 28px 20px;
+      margin-bottom: 18px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    /* CABEÇALHO */
+
+    .emoji {
+      font-size: 42px;
+      margin-bottom: 12px;
     }
 
     h1 {
-        font-size: 27px;
+      font-size: 30px;
+      line-height: 1.15;
+      margin-bottom: 15px;
     }
 
-    .texto,
-    .lojinha-texto,
+    .amarelo {
+      color: #ffd84d;
+    }
+
+    .texto {
+      font-size: 18px;
+      line-height: 1.55;
+      color: #f0edf5;
+    }
+
+    /* LOJINHA */
+
+    .lojinha {
+      padding-top: 10px;
+    }
+
+    .separador {
+      color: #ffd84d;
+      font-size: 20px;
+      margin: 15px 0;
+    }
+
+    .lojinha h2 {
+      color: #ffd84d;
+      font-size: 23px;
+      margin-bottom: 20px;
+    }
+
+    .lojinha p {
+      font-size: 17px;
+      line-height: 1.55;
+      margin-bottom: 18px;
+      color: #f4f1f7;
+    }
+
+    .destaque {
+      color: #ffd84d;
+      font-weight: bold;
+    }
+
+    /* PIX - TUDO EM UM QUADRADO */
+
+    .pix-card {
+      background: linear-gradient(180deg, #6516a0 0%, #2a1044 55%, #160d2b 100%);
+      border: 2px solid #8e55df;
+      border-radius: 28px;
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .pix-card h2 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .pix-card h2 span {
+      color: #ffd84d;
+    }
+
     .pix-texto {
-        font-size: 16px;
+      font-size: 16px;
+      line-height: 1.45;
+      margin-bottom: 20px;
+      color: #f5f1fa;
     }
 
-    .pix-titulo {
-        font-size: 27px;
+    #qrcode {
+      background: white;
+      width: 230px;
+      height: 230px;
+      margin: 0 auto 22px;
+      padding: 10px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .qrcode {
-        width: 190px;
+    #qrcode img,
+    #qrcode canvas {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .botao-pix {
+      width: 100%;
+      border: none;
+      border-radius: 16px;
+      padding: 19px 15px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      background: linear-gradient(90deg, #ffd84d, #ff9d00);
+      color: #27103b;
+      margin-bottom: 20px;
+      transition: 0.2s;
+    }
+
+    .botao-pix:hover {
+      transform: scale(1.02);
+    }
+
+    .botao-pix:active {
+      transform: scale(0.98);
+    }
+
+    .copiado {
+      min-height: 25px;
+      color: #9cffaa;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    /* DADOS PIX DENTRO DO MESMO QUADRADO */
+
+    .dados-pix {
+      background: rgba(255, 255, 255, 0.96);
+      color: #302348;
+      border-radius: 20px;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .dados-pix h3 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 18px;
+      color: #49356d;
     }
 
     .linha {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 13px 0;
+      border-bottom: 1px solid #d5d5d5;
+      font-size: 16px;
+    }
+
+    .linha:last-child {
+      border-bottom: none;
+    }
+
+    .label {
+      font-weight: bold;
+      white-space: nowrap;
     }
 
     .valor {
-        text-align: left;
+      text-align: right;
+      font-weight: bold;
+      color: #5b3c87;
+      word-break: break-word;
     }
 
-}
+    /* FINAL */
 
-</style>
+    .final {
+      text-align: center;
+      margin-top: 20px;
+      color: #ffd84d;
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 480px) {
+
+      body {
+        padding: 15px 10px;
+      }
+
+      .card,
+      .pix-card {
+        padding: 24px 15px;
+      }
+
+      h1 {
+        font-size: 27px;
+      }
+
+      #qrcode {
+        width: 210px;
+        height: 210px;
+      }
+
+      .linha {
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .valor {
+        text-align: left;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
-<main class="container">
+  <div class="container">
 
+    <!-- APRESENTAÇÃO -->
+    <section class="card">
 
-<!-- =====================================
-     APRESENTAÇÃO + LOJINHA
-===================================== -->
+      <div class="emoji">🚘</div>
 
-<section class="card apresentacao">
-
-    <div class="icone-carro">🚐</div>
-
-    <h1>
+      <h1>
         Me chamo<br>
-        <span class="nome">Amarildon</span>
-    </h1>
+        <span class="amarelo">Amarildon</span>
+      </h1>
 
-    <p class="texto">
+      <p class="texto">
         Trabalho como motorista de aplicativos e todos os dias
         estou na estrada para levar você com segurança até seu destino.
-    </p>
+      </p>
+
+    </section>
 
 
-    <div class="separador">
-        🍬 ─────────────
-    </div>
+    <!-- LOJINHA -->
+    <section class="card lojinha">
 
+      <div class="separador">🍬 ─────────────────</div>
 
-    <h2 class="lojinha-titulo">
-        CONHEÇA MINHA LOJINHA!
-    </h2>
+      <h2>CONHEÇA MINHA LOJINHA!</h2>
 
+      <p>
+        Durante sua viagem você também pode aproveitar alguns
+        produtos da minha lojinha.
+      </p>
 
-    <p class="lojinha-texto">
-
-        Durante sua viagem você também pode aproveitar alguns produtos
-        da minha lojinha.
-
-        <br><br>
-
+      <p>
         Ao comprar algo, você contribui para
-        <strong>
-            melhorar minha renda e me ajuda a conquistar meus objetivos.
-        </strong>
+        <span class="destaque">
+          melhorar minha renda e me ajuda a conquistar meus objetivos.
+        </span>
+      </p>
 
-    </p>
-
-</section>
-
+    </section>
 
 
-<!-- =====================================
-     PIX + DADOS EM UM ÚNICO QUADRADO
-===================================== -->
+    <!-- PIX - UM ÚNICO QUADRADO -->
+    <section class="pix-card">
 
-<section class="card pix-card">
-
-    <h2 class="pix-titulo">
+      <h2>
         📱 Faça um <span>Pix</span>
-    </h2>
+      </h2>
+
+      <p class="pix-texto">
+        Escaneie o QR Code ou clique no botão abaixo para copiar
+        o código Pix.
+      </p>
 
 
-    <p class="pix-texto">
-        Escaneie o QR Code ou clique no botão abaixo para copiar a chave Pix.
-    </p>
+      <!-- QR CODE -->
+      <div id="qrcode"></div>
 
 
-    <!-- QR CODE -->
-
-    <div class="qr-box">
-
-        <img
-            src="qrcode.png"
-            alt="QR Code Pix"
-            class="qrcode"
-        >
-
-    </div>
-
-
-    <!-- BOTÃO -->
-
-    <button
-        class="botao-pix"
-        onclick="copiarPix()"
-    >
+      <!-- BOTÃO -->
+      <button class="botao-pix" onclick="copiarPix()">
         📋 COPIAR CÓDIGO PIX
-    </button>
+      </button>
 
 
-    <div
-        class="mensagem-copiado"
-        id="mensagemCopiado"
-    >
-        ✅ Chave Pix copiada!
+      <div id="mensagem" class="copiado"></div>
+
+
+      <!-- DADOS -->
+      <div class="dados-pix">
+
+        <h3>💜 Dados do Pix</h3>
+
+        <div class="linha">
+          <span class="label">Chave Pix</span>
+          <span class="valor">31assis+inter@gmail.com</span>
+        </div>
+
+        <div class="linha">
+          <span class="label">Nome</span>
+          <span class="valor">AMARILDON RIBEIRO DE ASSIS</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <div class="final">
+      💖 Sua presença já é especial! 💖
     </div>
 
-
-    <!-- SEPARADOR -->
-
-    <div class="pix-separador"></div>
+  </div>
 
 
-    <!-- DADOS DO PIX -->
-
-    <div class="dados-pix">
-
-
-        <h2 class="dados-titulo">
-            💜 Dados do Pix
-        </h2>
+  <!-- BIBLIOTECA PARA GERAR O QR CODE -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 
-        <div class="linha">
+  <script>
 
-            <div class="campo">
-                Chave Pix
-            </div>
+    /*
+    ==================================================
+    CÓDIGO PIX COPIA E COLA
+    ==================================================
+    */
 
-            <div class="valor chave">
-                (41) 99911-4745
-            </div>
-
-        </div>
-
-
-        <div class="linha">
-
-            <div class="campo">
-                Nome
-            </div>
-
-            <div class="valor">
-                Amarildon Ribeiro de Assis
-            </div>
-
-        </div>
+    const codigoPix =
+      "00020101021126450014br.gov.bcb.pix012331assis+inter@gmail.com5204000053039865802BR5920AMARILDON R DE ASSIS6008CURITIBA62070503***63046D83";
 
 
-        <div class="linha">
+    /*
+    ==================================================
+    GERA O QR CODE AUTOMATICAMENTE
+    ==================================================
+    */
 
-            <div class="campo">
-                Banco
-            </div>
-
-            <div class="valor">
-                Nu Pagamentos S.A.
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<div class="rodape">
-    💜 Sua presença já é especial! 💜
-</div>
-
-
-</main>
-
-
-
-<!-- =====================================
-     JAVASCRIPT
-===================================== -->
-
-<script>
-
-function copiarPix() {
-
-    const chavePix = "(41) 99911-4745";
-
-    navigator.clipboard.writeText(chavePix)
-    .then(function() {
-
-        const mensagem =
-            document.getElementById("mensagemCopiado");
-
-        mensagem.style.display = "block";
-
-        setTimeout(function() {
-
-            mensagem.style.display = "none";
-
-        }, 3000);
-
-    })
-    .catch(function() {
-
-        alert(
-            "Chave Pix: " + chavePix
-        );
-
+    new QRCode(document.getElementById("qrcode"), {
+      text: codigoPix,
+      width: 210,
+      height: 210,
+      correctLevel: QRCode.CorrectLevel.M
     });
 
-}
 
-</script>
+    /*
+    ==================================================
+    COPIAR PIX
+    ==================================================
+    */
 
+    function copiarPix() {
+
+      navigator.clipboard.writeText(codigoPix)
+        .then(function () {
+
+          const mensagem = document.getElementById("mensagem");
+
+          mensagem.innerHTML = "✅ Código Pix copiado!";
+
+          setTimeout(function () {
+            mensagem.innerHTML = "";
+          }, 3000);
+
+        })
+        .catch(function () {
+
+          alert("Não foi possível copiar automaticamente. Tente novamente.");
+
+        });
+
+    }
+
+  </script>
 
 </body>
 </html>
