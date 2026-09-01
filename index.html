@@ -6,10 +6,11 @@
 
   <title>Gorjeta do Motorista - Amarildon</title>
 
-  <!-- Biblioteca para gerar o QR Code -->
+  <!-- Biblioteca para gerar QR Code -->
   <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -30,7 +31,9 @@
       margin: auto;
     }
 
-    /* CABEÇALHO */
+    /* =========================
+       APRESENTAÇÃO
+    ========================== */
 
     .hero {
       background: linear-gradient(135deg, #17063d, #43008a);
@@ -62,7 +65,10 @@
       color: #eeeeee;
     }
 
-    /* CARDS */
+
+    /* =========================
+       CARDS GERAIS
+    ========================== */
 
     .card {
       background: #130b2e;
@@ -79,7 +85,10 @@
       margin-bottom: 15px;
     }
 
-    /* LOJINHA */
+
+    /* =========================
+       LOJINHA
+    ========================== */
 
     .shop {
       text-align: center;
@@ -89,7 +98,12 @@
 
     .shop strong {
       color: #ffd229;
-      font-size: 22px;
+    }
+
+    .shop-title {
+      font-size: 23px;
+      color: #ffd229;
+      font-weight: bold;
     }
 
     .shop-button {
@@ -106,7 +120,10 @@
       font-size: 18px;
     }
 
-    /* PIX */
+
+    /* =========================
+       PIX
+    ========================== */
 
     .pix-card {
       background: linear-gradient(180deg, #5d08a6, #210046);
@@ -117,6 +134,13 @@
       font-size: 27px;
     }
 
+    .instruction {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #eeeeee;
+      margin-bottom: 18px;
+    }
+
     #qrcode {
       background: white;
       padding: 12px;
@@ -125,14 +149,10 @@
       margin: 10px auto 20px;
     }
 
-    .instruction {
-      font-size: 16px;
-      line-height: 1.5;
-      color: #eeeeee;
-      margin-bottom: 18px;
-    }
 
-    /* BOTÃO COPIAR */
+    /* =========================
+       BOTÃO COPIAR
+    ========================== */
 
     .copy-button {
       width: 100%;
@@ -161,9 +181,59 @@
       color: #7CFF9B;
       display: none;
       font-size: 17px;
+      line-height: 1.5;
     }
 
-    /* GORJETA */
+
+    /* =========================
+       DADOS DO PIX
+       AGORA DENTRO DO CARD PIX
+    ========================== */
+
+    .pix-info {
+      background: white;
+      color: #222;
+      border-radius: 16px;
+      padding: 18px;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .pix-info h3 {
+      text-align: center;
+      color: #5a189a;
+      font-size: 21px;
+      margin-bottom: 12px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 11px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .row:last-child {
+      border-bottom: none;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .value {
+      text-align: right;
+      font-weight: bold;
+      color: #5a189a;
+      word-break: break-word;
+    }
+
+
+    /* =========================
+       GORJETA
+    ========================== */
 
     .tip {
       text-align: center;
@@ -191,41 +261,10 @@
       font-size: 21px;
     }
 
-    /* INFORMAÇÕES */
 
-    .info {
-      background: white;
-      color: #222;
-    }
-
-    .info h2 {
-      color: #4d148c;
-    }
-
-    .row {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      padding: 12px 0;
-      border-bottom: 1px solid #ddd;
-      text-align: left;
-    }
-
-    .row:last-child {
-      border-bottom: none;
-    }
-
-    .label {
-      font-weight: bold;
-      color: #333;
-    }
-
-    .value {
-      text-align: right;
-      font-weight: bold;
-      color: #5a189a;
-      word-break: break-word;
-    }
+    /* =========================
+       RODAPÉ
+    ========================== */
 
     footer {
       text-align: center;
@@ -234,6 +273,11 @@
       font-size: 18px;
       font-weight: bold;
     }
+
+
+    /* =========================
+       CELULAR
+    ========================== */
 
     @media (max-width: 450px) {
 
@@ -254,23 +298,34 @@
         text-align: left;
       }
 
+      #qrcode {
+        transform: scale(.9);
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+
     }
 
   </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-  <!-- APRESENTAÇÃO -->
+
+  <!-- =========================
+       APRESENTAÇÃO
+  ========================== -->
 
   <section class="hero">
 
     <div class="car-icon">🚗</div>
 
     <h1>
-      Me chamo<br>
+      Me chamo
+      <br>
       <span class="yellow">Amarildon</span>
     </h1>
 
@@ -282,7 +337,9 @@
   </section>
 
 
-  <!-- LOJINHA -->
+  <!-- =========================
+       LOJINHA
+  ========================== -->
 
   <section class="card">
 
@@ -292,31 +349,36 @@
 
       <br><br>
 
-      <strong>Conheça minha Lojinha!</strong>
-
-      <br><br>
-
-      Comprando algo da minha lojinha, você também contribui com meu esforço de
-      <strong>melhorar minha renda e conquistar meus objetivos.</strong>
+      <div class="shop-title">
+        Conheça minha Lojinha!
+      </div>
 
       <br>
+
+      Comprando algo da minha lojinha, você também contribui com meu esforço de
+
+      <strong>
+        melhorar minha renda e conquistar meus objetivos.
+      </strong>
+
+      <br><br>
 
       ❤️ Muito obrigado pelo apoio!
 
     </div>
 
-    <!-- TROQUE O # PELO LINK DA SUA LOJINHA -->
+    <!-- DEPOIS COLOCAREMOS O LINK DA SUA LOJINHA -->
 
     <a href="#" class="shop-button">
-
       🍬 CONHEÇA MINHA LOJINHA
-
     </a>
 
   </section>
 
 
-  <!-- PIX -->
+  <!-- =========================
+       PIX
+  ========================== -->
 
   <section class="card pix-card">
 
@@ -328,31 +390,94 @@
       Escaneie o QR Code ou clique no botão abaixo para copiar o código Pix.
     </p>
 
+
+    <!-- QR CODE -->
+
     <div id="qrcode"></div>
 
-    <br>
+
+    <!-- BOTÃO COPIAR -->
 
     <button class="copy-button" onclick="copiarPix()">
-
       📋 COPIAR CÓDIGO PIX
-
     </button>
+
+
+    <!-- CONFIRMAÇÃO -->
 
     <div id="copied" class="copied">
 
-      ✅ Código Pix copiado!<br>
+      ✅ Código Pix copiado!
+
+      <br>
+
       Agora é só abrir seu banco e usar Pix Copia e Cola.
+
+    </div>
+
+
+    <!-- =========================
+         DADOS DO PIX
+         AGORA NA MESMA ÁREA
+    ========================== -->
+
+    <div class="pix-info">
+
+      <h3>💜 Dados do Pix</h3>
+
+
+      <div class="row">
+
+        <div class="label">
+          Chave Pix
+        </div>
+
+        <div class="value">
+          (41) 99911-4745
+        </div>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="label">
+          Nome
+        </div>
+
+        <div class="value">
+          Amarildon Ribeiro de Assis
+        </div>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="label">
+          Banco
+        </div>
+
+        <div class="value">
+          Nu Pagamentos S.A.
+        </div>
+
+      </div>
 
     </div>
 
   </section>
 
 
-  <!-- GORJETA -->
+  <!-- =========================
+       GORJETA
+  ========================== -->
 
   <section class="card tip">
 
-    <div class="heart">❤️</div>
+    <div class="heart">
+      ❤️
+    </div>
 
     <h2>
       Gostou da corrida?
@@ -377,69 +502,29 @@
   </section>
 
 
-  <!-- INFORMAÇÕES PIX -->
-
-  <section class="card info">
-
-    <h2>💜 Dados do Pix</h2>
-
-    <div class="row">
-
-      <div class="label">
-        Chave Pix
-      </div>
-
-      <div class="value">
-        (41) 99911-4745
-      </div>
-
-    </div>
-
-    <div class="row">
-
-      <div class="label">
-        Nome
-      </div>
-
-      <div class="value">
-        Amarildon Ribeiro de Assis
-      </div>
-
-    </div>
-
-    <div class="row">
-
-      <div class="label">
-        Banco
-      </div>
-
-      <div class="value">
-        Nu Pagamentos S.A.
-      </div>
-
-    </div>
-
-  </section>
-
+  <!-- RODAPÉ -->
 
   <footer>
-
     ❤️ Deus abençoe você sempre! ❤️
-
   </footer>
+
 
 </div>
 
 
 <script>
 
-  /* CÓDIGO PIX COMPLETO */
+  /* =========================
+     CÓDIGO PIX COMPLETO
+  ========================== */
 
   const codigoPix =
-  "00020126680014BR.GOV.BCB.PIX0114+55419991147450228Obrigado pelo seu pagamento.5204000053039865802BR5925Amarildon Ribeiro de Assi6009SAO PAULO62140510VcFbSOX9Lu6304CC2A";
+    "00020126680014BR.GOV.BCB.PIX0114+55419991147450228Obrigado pelo seu pagamento.5204000053039865802BR5925Amarildon Ribeiro de Assi6009SAO PAULO62140510VcFbSOX9Lu6304CC2A";
 
 
-  /* GERA O QR CODE */
+  /* =========================
+     GERAR QR CODE
+  ========================== */
 
   new QRCode(document.getElementById("qrcode"), {
 
@@ -458,23 +543,29 @@
   });
 
 
-  /* COPIAR PIX */
+  /* =========================
+     COPIAR PIX
+  ========================== */
 
   function copiarPix() {
 
     navigator.clipboard.writeText(codigoPix)
+
       .then(() => {
 
         document.getElementById("copied").style.display = "block";
 
       })
-      .catch(() => {
 
-        /* Alternativa para celulares antigos */
+      .catch(() => {
 
         const textarea = document.createElement("textarea");
 
         textarea.value = codigoPix;
+
+        textarea.style.position = "fixed";
+
+        textarea.style.opacity = "0";
 
         document.body.appendChild(textarea);
 
