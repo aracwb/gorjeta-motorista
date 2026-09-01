@@ -1,587 +1,632 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Gorjeta do Motorista - Amarildon</title>
+    <title>Gorjeta do Motorista - Amarildon</title>
 
-  <!-- Biblioteca para gerar QR Code -->
-  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <style>
 
-  <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0d081d;
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 30px 15px;
+        }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #09051c;
-      color: white;
-      min-height: 100vh;
-      padding: 20px 12px;
-    }
+        .container {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+        }
 
-    .container {
-      width: 100%;
-      max-width: 520px;
-      margin: auto;
-    }
+        /* =========================
+           CARD PRINCIPAL
+        ========================= */
 
-    /* =========================
-       APRESENTAÇÃO
-    ========================== */
+        .card-principal {
+            background: linear-gradient(
+                180deg,
+                #35146b 0%,
+                #1b102f 100%
+            );
 
-    .hero {
-      background: linear-gradient(135deg, #17063d, #43008a);
-      border: 2px solid #7c35d9;
-      border-radius: 25px;
-      padding: 25px 20px;
-      text-align: center;
-      box-shadow: 0 0 30px rgba(130, 50, 255, 0.25);
-    }
+            border: 2px solid #7144c5;
+            border-radius: 24px;
 
-    .car-icon {
-      font-size: 70px;
-      margin-bottom: 10px;
-    }
+            padding: 32px 22px;
 
-    h1 {
-      font-size: 32px;
-      line-height: 1.1;
-      margin-bottom: 12px;
-    }
+            text-align: center;
 
-    .yellow {
-      color: #ffd229;
-    }
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.35);
 
-    .subtitle {
-      font-size: 18px;
-      line-height: 1.5;
-      color: #eeeeee;
-    }
+            margin-bottom: 20px;
+        }
 
+        .icone-carro {
+            font-size: 46px;
+            margin-bottom: 15px;
+        }
 
-    /* =========================
-       CARDS GERAIS
-    ========================== */
+        .titulo-apresentacao {
+            font-size: 30px;
+            font-weight: bold;
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
 
-    .card {
-      background: #130b2e;
-      border: 2px solid #6331a5;
-      border-radius: 22px;
-      padding: 22px;
-      margin-top: 18px;
-      box-shadow: 0 8px 25px rgba(0,0,0,.35);
-    }
+        .nome {
+            color: #ffd83d;
+        }
 
-    .card h2 {
-      text-align: center;
-      font-size: 24px;
-      margin-bottom: 15px;
-    }
+        .descricao {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #eeeeee;
+        }
 
+        /* =========================
+           DIVISOR
+        ========================= */
 
-    /* =========================
-       LOJINHA
-    ========================== */
+        .divisor {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
 
-    .shop {
-      text-align: center;
-      font-size: 19px;
-      line-height: 1.5;
-    }
+            margin: 28px 0 22px;
+        }
 
-    .shop strong {
-      color: #ffd229;
-    }
+        .linha {
+            height: 1px;
+            flex: 1;
+            background: #7d58b8;
+        }
 
-    .shop-title {
-      font-size: 23px;
-      color: #ffd229;
-      font-weight: bold;
-    }
+        .doce {
+            font-size: 22px;
+        }
 
-    .shop-button {
-      display: block;
-      width: 100%;
-      margin-top: 18px;
-      padding: 16px;
-      border-radius: 14px;
-      text-align: center;
-      text-decoration: none;
-      background: linear-gradient(135deg, #ffd229, #ff9f00);
-      color: #1a082e;
-      font-weight: bold;
-      font-size: 18px;
-    }
+        /* =========================
+           LOJINHA
+        ========================= */
 
+        .titulo-lojinha {
+            color: #ffd83d;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 22px;
+        }
 
-    /* =========================
-       PIX
-    ========================== */
+        .texto-lojinha {
+            font-size: 18px;
+            line-height: 1.55;
+            color: #eeeeee;
+        }
 
-    .pix-card {
-      background: linear-gradient(180deg, #5d08a6, #210046);
-      text-align: center;
-    }
-
-    .pix-card h2 {
-      font-size: 27px;
-    }
-
-    .instruction {
-      font-size: 16px;
-      line-height: 1.5;
-      color: #eeeeee;
-      margin-bottom: 18px;
-    }
-
-    #qrcode {
-      background: white;
-      padding: 12px;
-      display: inline-block;
-      border-radius: 16px;
-      margin: 10px auto 20px;
-    }
+        .destaque {
+            color: #ffd83d;
+            font-weight: bold;
+        }
 
 
-    /* =========================
-       BOTÃO COPIAR
-    ========================== */
+        /* =========================
+           PIX
+        ========================= */
 
-    .copy-button {
-      width: 100%;
-      border: none;
-      border-radius: 16px;
-      padding: 18px;
-      font-size: 19px;
-      font-weight: bold;
-      cursor: pointer;
-      background: white;
-      color: #5a189a;
-      transition: .2s;
-    }
+        .card-pix {
+            background: linear-gradient(
+                180deg,
+                #6814b4 0%,
+                #25073f 100%
+            );
 
-    .copy-button:hover {
-      transform: scale(1.02);
-    }
+            border: 2px solid #8748d6;
+            border-radius: 24px;
 
-    .copy-button:active {
-      transform: scale(.98);
-    }
+            padding: 30px 20px;
 
-    .copied {
-      margin-top: 15px;
-      font-weight: bold;
-      color: #7CFF9B;
-      display: none;
-      font-size: 17px;
-      line-height: 1.5;
-    }
+            text-align: center;
 
+            margin-bottom: 20px;
 
-    /* =========================
-       DADOS DO PIX
-       AGORA DENTRO DO CARD PIX
-    ========================== */
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.35);
+        }
 
-    .pix-info {
-      background: white;
-      color: #222;
-      border-radius: 16px;
-      padding: 18px;
-      margin-top: 20px;
-      text-align: left;
-    }
+        .titulo-pix {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
 
-    .pix-info h3 {
-      text-align: center;
-      color: #5a189a;
-      font-size: 21px;
-      margin-bottom: 12px;
-    }
+        .titulo-pix span {
+            color: #ffd83d;
+        }
 
-    .row {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      padding: 11px 0;
-      border-bottom: 1px solid #ddd;
-    }
+        .subtitulo-pix {
+            font-size: 16px;
+            color: #eeeeee;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
 
-    .row:last-child {
-      border-bottom: none;
-    }
+        .qr-code {
+            width: 230px;
+            max-width: 100%;
+            background: white;
 
-    .label {
-      font-weight: bold;
-      color: #333;
-    }
+            padding: 12px;
 
-    .value {
-      text-align: right;
-      font-weight: bold;
-      color: #5a189a;
-      word-break: break-word;
-    }
+            border-radius: 14px;
 
+            margin: 0 auto 20px;
+        }
 
-    /* =========================
-       GORJETA
-    ========================== */
+        .qr-code img {
+            width: 100%;
+            display: block;
+        }
 
-    .tip {
-      text-align: center;
-      background: linear-gradient(135deg, #21083f, #12071f);
-    }
+        .botao-pix {
+            width: 100%;
 
-    .heart {
-      font-size: 55px;
-      margin-bottom: 10px;
-    }
+            border: none;
 
-    .tip h2 {
-      font-size: 27px;
-    }
+            background: linear-gradient(
+                90deg,
+                #ffd23f,
+                #ff9d00
+            );
 
-    .tip p {
-      font-size: 18px;
-      line-height: 1.5;
-      color: #eeeeee;
-    }
+            color: #24112f;
 
-    .highlight {
-      color: #ffd229;
-      font-weight: bold;
-      font-size: 21px;
-    }
+            font-size: 18px;
+            font-weight: bold;
+
+            padding: 18px;
+
+            border-radius: 14px;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+            margin-top: 10px;
+        }
+
+        .botao-pix:hover {
+            transform: scale(1.02);
+        }
+
+        .mensagem-copiado {
+            display: none;
+
+            color: #9cffb0;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            margin-top: 18px;
+        }
 
 
-    /* =========================
-       RODAPÉ
-    ========================== */
+        /* =========================
+           DADOS PIX
+        ========================= */
 
-    footer {
-      text-align: center;
-      padding: 25px 10px 10px;
-      color: #ffd229;
-      font-size: 18px;
-      font-weight: bold;
-    }
+        .dados-pix {
+            background: #ffffff;
+
+            color: #251339;
+
+            border-radius: 22px;
+
+            padding: 25px 20px;
+
+            border: 2px solid #7442ba;
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .dados-titulo {
+            text-align: center;
+
+            font-size: 24px;
+            font-weight: bold;
+
+            color: #553184;
+
+            margin-bottom: 20px;
+        }
+
+        .linha-dado {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 13px 0;
+
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .linha-dado:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+
+        .valor {
+            text-align: right;
+
+            color: #553184;
+
+            font-weight: bold;
+        }
+
+        .chave-pix {
+            color: #553184;
+            text-decoration: underline;
+            cursor: pointer;
+        }
 
 
-    /* =========================
-       CELULAR
-    ========================== */
+        /* =========================
+           RODAPÉ
+        ========================= */
 
-    @media (max-width: 450px) {
+        .rodape {
+            text-align: center;
 
-      h1 {
-        font-size: 27px;
-      }
+            margin-top: 25px;
 
-      .card {
-        padding: 18px;
-      }
+            color: #ffd83d;
 
-      .row {
-        flex-direction: column;
-        gap: 5px;
-      }
+            font-size: 16px;
 
-      .value {
-        text-align: left;
-      }
+            line-height: 1.5;
+        }
 
-      #qrcode {
-        transform: scale(.9);
-        margin-top: 0;
-        margin-bottom: 10px;
-      }
 
-    }
+        /* =========================
+           CELULAR
+        ========================= */
 
-  </style>
+        @media (max-width: 500px) {
+
+            body {
+                padding: 15px 10px;
+            }
+
+            .card-principal,
+            .card-pix {
+                padding: 25px 16px;
+            }
+
+            .titulo-apresentacao {
+                font-size: 27px;
+            }
+
+            .descricao,
+            .texto-lojinha {
+                font-size: 16px;
+            }
+
+            .titulo-lojinha {
+                font-size: 21px;
+            }
+
+            .linha-dado {
+                font-size: 14px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
 
-<div class="container">
+    <div class="container">
 
 
-  <!-- =========================
-       APRESENTAÇÃO
-  ========================== -->
+        <!-- =========================
+             APRESENTAÇÃO + LOJINHA
+        ========================= -->
 
-  <section class="hero">
+        <div class="card-principal">
 
-    <div class="car-icon">🚗</div>
-
-    <h1>
-      Me chamo
-      <br>
-      <span class="yellow">Amarildon</span>
-    </h1>
-
-    <p class="subtitle">
-      Trabalho como <strong>motorista de aplicativos</strong>
-      e todos os dias estou na estrada para levar você com segurança até seu destino.
-    </p>
-
-  </section>
+            <div class="icone-carro">
+                🚙
+            </div>
 
 
-  <!-- =========================
-       LOJINHA
-  ========================== -->
+            <div class="titulo-apresentacao">
 
-  <section class="card">
+                Me chamo<br>
 
-    <div class="shop">
+                <span class="nome">
+                    Amarildon
+                </span>
 
-      🍬
+            </div>
 
-      <br><br>
 
-      <div class="shop-title">
-        Conheça minha Lojinha!
-      </div>
+            <p class="descricao">
 
-      <br>
+                Trabalho como motorista de aplicativos
+                e todos os dias estou na estrada para levar
+                você com segurança até seu destino.
 
-      Comprando algo da minha lojinha, você também contribui com meu esforço de
+            </p>
 
-      <strong>
-        melhorar minha renda e conquistar meus objetivos.
-      </strong>
 
-      <br><br>
+            <!-- DIVISOR -->
 
-      ❤️ Muito obrigado pelo apoio!
+            <div class="divisor">
+
+                <div class="linha"></div>
+
+                <div class="doce">
+                    🍬
+                </div>
+
+                <div class="linha"></div>
+
+            </div>
+
+
+            <!-- LOJINHA -->
+
+            <div class="titulo-lojinha">
+
+                CONHEÇA MINHA LOJINHA!
+
+            </div>
+
+
+            <p class="texto-lojinha">
+
+                Durante sua viagem você também pode aproveitar
+                alguns produtos da minha lojinha.
+
+                <br><br>
+
+                Ao comprar algo, você contribui para
+                <span class="destaque">
+                    melhorar minha renda e me ajuda a conquistar
+                    meus objetivos.
+                </span>
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             PIX
+        ========================= -->
+
+        <div class="card-pix">
+
+            <div class="titulo-pix">
+
+                📱 Faça um <span>Pix</span>
+
+            </div>
+
+
+            <div class="subtitulo-pix">
+
+                Escaneie o QR Code ou clique no botão abaixo
+                para copiar o código Pix.
+
+            </div>
+
+
+            <!-- QR CODE -->
+            <div class="qr-code">
+
+                <!-- COLOQUE AQUI A IMAGEM DO SEU QR CODE -->
+
+                <img
+                    src="SEU-QR-CODE.png"
+                    alt="QR Code Pix"
+                >
+
+            </div>
+
+
+            <!-- BOTÃO -->
+
+            <button
+                class="botao-pix"
+                onclick="copiarPix()"
+            >
+
+                📋 COPIAR CÓDIGO PIX
+
+            </button>
+
+
+            <div
+                class="mensagem-copiado"
+                id="mensagemCopiado"
+            >
+
+                ✅ Código Pix copiado!
+
+                <br>
+
+                Agora é só abrir seu banco e usar
+                Pix Copia e Cola.
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             DADOS DO PIX
+        ========================= -->
+
+        <div class="dados-pix">
+
+            <div class="dados-titulo">
+
+                💜 Dados do Pix
+
+            </div>
+
+
+            <div class="linha-dado">
+
+                <div class="label">
+                    Chave Pix
+                </div>
+
+                <div
+                    class="valor chave-pix"
+                    onclick="copiarChave()"
+                >
+
+                    (41) 99911-4745
+
+                </div>
+
+            </div>
+
+
+            <div class="linha-dado">
+
+                <div class="label">
+                    Nome
+                </div>
+
+                <div class="valor">
+
+                    Amarildon Ribeiro de Assis
+
+                </div>
+
+            </div>
+
+
+            <div class="linha-dado">
+
+                <div class="label">
+                    Banco
+                </div>
+
+                <div class="valor">
+
+                    Nu Pagamentos S.A.
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- RODAPÉ -->
+
+        <div class="rodape">
+
+            💖 Sua presença já é especial! 💖
+
+        </div>
+
 
     </div>
 
-    <!-- DEPOIS COLOCAREMOS O LINK DA SUA LOJINHA -->
 
-    <a href="#" class="shop-button">
-      🍬 CONHEÇA MINHA LOJINHA
-    </a>
 
-  </section>
+    <script>
 
+        /*
+        ========================================
+        COLE AQUI O SEU CÓDIGO PIX COPIA E COLA
+        ========================================
+        */
 
-  <!-- =========================
-       PIX
-  ========================== -->
+        const codigoPix = `
+COLE_AQUI_SEU_CODIGO_PIX_COMPLETO
+        `;
 
-  <section class="card pix-card">
 
-    <h2>
-      📱 Faça um <span class="yellow">Pix</span>
-    </h2>
+        function copiarPix() {
 
-    <p class="instruction">
-      Escaneie o QR Code ou clique no botão abaixo para copiar o código Pix.
-    </p>
+            navigator.clipboard.writeText(
+                codigoPix.trim()
+            ).then(() => {
 
+                const mensagem =
+                    document.getElementById(
+                        "mensagemCopiado"
+                    );
 
-    <!-- QR CODE -->
+                mensagem.style.display = "block";
 
-    <div id="qrcode"></div>
 
+                setTimeout(() => {
 
-    <!-- BOTÃO COPIAR -->
+                    mensagem.style.display = "none";
 
-    <button class="copy-button" onclick="copiarPix()">
-      📋 COPIAR CÓDIGO PIX
-    </button>
+                }, 5000);
 
+            });
 
-    <!-- CONFIRMAÇÃO -->
+        }
 
-    <div id="copied" class="copied">
 
-      ✅ Código Pix copiado!
 
-      <br>
+        function copiarChave() {
 
-      Agora é só abrir seu banco e usar Pix Copia e Cola.
+            const chave =
+                "(41) 99911-4745";
 
-    </div>
 
+            navigator.clipboard.writeText(
+                chave
+            ).then(() => {
 
-    <!-- =========================
-         DADOS DO PIX
-         AGORA NA MESMA ÁREA
-    ========================== -->
+                alert(
+                    "Chave Pix copiada!"
+                );
 
-    <div class="pix-info">
+            });
 
-      <h3>💜 Dados do Pix</h3>
+        }
 
+    </script>
 
-      <div class="row">
-
-        <div class="label">
-          Chave Pix
-        </div>
-
-        <div class="value">
-          (41) 99911-4745
-        </div>
-
-      </div>
-
-
-      <div class="row">
-
-        <div class="label">
-          Nome
-        </div>
-
-        <div class="value">
-          Amarildon Ribeiro de Assis
-        </div>
-
-      </div>
-
-
-      <div class="row">
-
-        <div class="label">
-          Banco
-        </div>
-
-        <div class="value">
-          Nu Pagamentos S.A.
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       GORJETA
-  ========================== -->
-
-  <section class="card tip">
-
-    <div class="heart">
-      ❤️
-    </div>
-
-    <h2>
-      Gostou da corrida?
-    </h2>
-
-    <p>
-
-      <span class="highlight">
-        Qualquer valor faz a diferença!
-      </span>
-
-      <br><br>
-
-      Sua gorjeta me ajuda muito e incentiva meu trabalho todos os dias.
-
-      <br><br>
-
-      Obrigado pelo carinho e pela confiança! 🙏
-
-    </p>
-
-  </section>
-
-
-  <!-- RODAPÉ -->
-
-  <footer>
-    ❤️ Deus abençoe você sempre! ❤️
-  </footer>
-
-
-</div>
-
-
-<script>
-
-  /* =========================
-     CÓDIGO PIX COMPLETO
-  ========================== */
-
-  const codigoPix =
-    "00020126680014BR.GOV.BCB.PIX0114+55419991147450228Obrigado pelo seu pagamento.5204000053039865802BR5925Amarildon Ribeiro de Assi6009SAO PAULO62140510VcFbSOX9Lu6304CC2A";
-
-
-  /* =========================
-     GERAR QR CODE
-  ========================== */
-
-  new QRCode(document.getElementById("qrcode"), {
-
-    text: codigoPix,
-
-    width: 230,
-
-    height: 230,
-
-    colorDark: "#000000",
-
-    colorLight: "#ffffff",
-
-    correctLevel: QRCode.CorrectLevel.H
-
-  });
-
-
-  /* =========================
-     COPIAR PIX
-  ========================== */
-
-  function copiarPix() {
-
-    navigator.clipboard.writeText(codigoPix)
-
-      .then(() => {
-
-        document.getElementById("copied").style.display = "block";
-
-      })
-
-      .catch(() => {
-
-        const textarea = document.createElement("textarea");
-
-        textarea.value = codigoPix;
-
-        textarea.style.position = "fixed";
-
-        textarea.style.opacity = "0";
-
-        document.body.appendChild(textarea);
-
-        textarea.select();
-
-        document.execCommand("copy");
-
-        document.body.removeChild(textarea);
-
-        document.getElementById("copied").style.display = "block";
-
-      });
-
-  }
-
-</script>
 
 </body>
+
 </html>
