@@ -1,1 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Gorjeta do Motorista - Amarildon</title>
+
+  <!-- Biblioteca para gerar o QR Code -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #09051c;
+      color: white;
+      min-height: 100vh;
+      padding: 20px 12px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 520px;
+      margin: auto;
+    }
+
+    /* CABEÇALHO */
+
+    .hero {
+      background: linear-gradient(135deg, #17063d, #43008a);
+      border: 2px solid #7c35d9;
+      border-radius: 25px;
+      padding: 25px 20px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(130, 50, 255, 0.25);
+    }
+
+    .car-icon {
+      font-size: 70px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 32px;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .yellow {
+      color: #ffd229;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      line-height: 1.5;
+      color: #eeeeee;
+    }
+
+    /* CARDS */
+
+    .card {
+      background: #130b2e;
+      border: 2px solid #6331a5;
+      border-radius: 22px;
+      padding: 22px;
+      margin-top: 18px;
+      box-shadow: 0 8px 25px rgba(0,0,0,.35);
+    }
+
+    .card h2 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    /* LOJINHA */
+
+    .shop {
+      text-align: center;
+      font-size: 19px;
+      line-height: 1.5;
+    }
+
+    .shop strong {
+      color: #ffd229;
+      font-size: 22px;
+    }
+
+    .shop-button {
+      display: block;
+      width: 100%;
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 14px;
+      text-align: center;
+      text-decoration: none;
+      background: linear-gradient(135deg, #ffd229, #ff9f00);
+      color: #1a082e;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    /* PIX */
+
+    .pix-card {
+      background: linear-gradient(180deg, #5d08a6, #210046);
+      text-align: center;
+    }
+
+    .pix-card h2 {
+      font-size: 27px;
+    }
+
+    #qrcode {
+      background: white;
+      padding: 12px;
+      display: inline-block;
+      border-radius: 16px;
+      margin: 10px auto 20px;
+    }
+
+    .instruction {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #eeeeee;
+      margin-bottom: 18px;
+    }
+
+    /* BOTÃO COPIAR */
+
+    .copy-button {
+      width: 100%;
+      border: none;
+      border-radius: 16px;
+      padding: 18px;
+      font-size: 19px;
+      font-weight: bold;
+      cursor: pointer;
+      background: white;
+      color: #5a189a;
+      transition: .2s;
+    }
+
+    .copy-button:hover {
+      transform: scale(1.02);
+    }
+
+    .copy-button:active {
+      transform: scale(.98);
+    }
+
+    .copied {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #7CFF9B;
+      display: none;
+      font-size: 17px;
+    }
+
+    /* GORJETA */
+
+    .tip {
+      text-align: center;
+      background: linear-gradient(135deg, #21083f, #12071f);
+    }
+
+    .heart {
+      font-size: 55px;
+      margin-bottom: 10px;
+    }
+
+    .tip h2 {
+      font-size: 27px;
+    }
+
+    .tip p {
+      font-size: 18px;
+      line-height: 1.5;
+      color: #eeeeee;
+    }
+
+    .highlight {
+      color: #ffd229;
+      font-weight: bold;
+      font-size: 21px;
+    }
+
+    /* INFORMAÇÕES */
+
+    .info {
+      background: white;
+      color: #222;
+    }
+
+    .info h2 {
+      color: #4d148c;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 12px 0;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    .row:last-child {
+      border-bottom: none;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .value {
+      text-align: right;
+      font-weight: bold;
+      color: #5a189a;
+      word-break: break-word;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 10px 10px;
+      color: #ffd229;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 450px) {
+
+      h1 {
+        font-size: 27px;
+      }
+
+      .card {
+        padding: 18px;
+      }
+
+      .row {
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .value {
+        text-align: left;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- APRESENTAÇÃO -->
+
+  <section class="hero">
+
+    <div class="car-icon">🚗</div>
+
+    <h1>
+      Me chamo<br>
+      <span class="yellow">Amarildon</span>
+    </h1>
+
+    <p class="subtitle">
+      Trabalho como <strong>motorista de aplicativos</strong>
+      e todos os dias estou na estrada para levar você com segurança até seu destino.
+    </p>
+
+  </section>
+
+
+  <!-- LOJINHA -->
+
+  <section class="card">
+
+    <div class="shop">
+
+      🍬
+
+      <br><br>
+
+      <strong>Conheça minha Lojinha!</strong>
+
+      <br><br>
+
+      Comprando algo da minha lojinha, você também contribui com meu esforço de
+      <strong>melhorar minha renda e conquistar meus objetivos.</strong>
+
+      <br>
+
+      ❤️ Muito obrigado pelo apoio!
+
+    </div>
+
+    <!-- TROQUE O # PELO LINK DA SUA LOJINHA -->
+
+    <a href="#" class="shop-button">
+
+      🍬 CONHEÇA MINHA LOJINHA
+
+    </a>
+
+  </section>
+
+
+  <!-- PIX -->
+
+  <section class="card pix-card">
+
+    <h2>
+      📱 Faça um <span class="yellow">Pix</span>
+    </h2>
+
+    <p class="instruction">
+      Escaneie o QR Code ou clique no botão abaixo para copiar o código Pix.
+    </p>
+
+    <div id="qrcode"></div>
+
+    <br>
+
+    <button class="copy-button" onclick="copiarPix()">
+
+      📋 COPIAR CÓDIGO PIX
+
+    </button>
+
+    <div id="copied" class="copied">
+
+      ✅ Código Pix copiado!<br>
+      Agora é só abrir seu banco e usar Pix Copia e Cola.
+
+    </div>
+
+  </section>
+
+
+  <!-- GORJETA -->
+
+  <section class="card tip">
+
+    <div class="heart">❤️</div>
+
+    <h2>
+      Gostou da corrida?
+    </h2>
+
+    <p>
+
+      <span class="highlight">
+        Qualquer valor faz a diferença!
+      </span>
+
+      <br><br>
+
+      Sua gorjeta me ajuda muito e incentiva meu trabalho todos os dias.
+
+      <br><br>
+
+      Obrigado pelo carinho e pela confiança! 🙏
+
+    </p>
+
+  </section>
+
+
+  <!-- INFORMAÇÕES PIX -->
+
+  <section class="card info">
+
+    <h2>💜 Dados do Pix</h2>
+
+    <div class="row">
+
+      <div class="label">
+        Chave Pix
+      </div>
+
+      <div class="value">
+        (41) 99911-4745
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="label">
+        Nome
+      </div>
+
+      <div class="value">
+        Amarildon Ribeiro de Assis
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="label">
+        Banco
+      </div>
+
+      <div class="value">
+        Nu Pagamentos S.A.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+
+    ❤️ Deus abençoe você sempre! ❤️
+
+  </footer>
+
+</div>
+
+
+<script>
+
+  /* CÓDIGO PIX COMPLETO */
+
+  const codigoPix =
+  "00020126680014BR.GOV.BCB.PIX0114+55419991147450228Obrigado pelo seu pagamento.5204000053039865802BR5925Amarildon Ribeiro de Assi6009SAO PAULO62140510VcFbSOX9Lu6304CC2A";
+
+
+  /* GERA O QR CODE */
+
+  new QRCode(document.getElementById("qrcode"), {
+
+    text: codigoPix,
+
+    width: 230,
+
+    height: 230,
+
+    colorDark: "#000000",
+
+    colorLight: "#ffffff",
+
+    correctLevel: QRCode.CorrectLevel.H
+
+  });
+
+
+  /* COPIAR PIX */
+
+  function copiarPix() {
+
+    navigator.clipboard.writeText(codigoPix)
+      .then(() => {
+
+        document.getElementById("copied").style.display = "block";
+
+      })
+      .catch(() => {
+
+        /* Alternativa para celulares antigos */
+
+        const textarea = document.createElement("textarea");
+
+        textarea.value = codigoPix;
+
+        document.body.appendChild(textarea);
+
+        textarea.select();
+
+        document.execCommand("copy");
+
+        document.body.removeChild(textarea);
+
+        document.getElementById("copied").style.display = "block";
+
+      });
+
+  }
+
+</script>
+
+</body>
+</html>
