@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <title>Gorjeta do Motorista - Amarildon</title>
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -15,395 +17,911 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #0d071d;
-      color: #ffffff;
+      background: #09051c;
+      color: white;
       min-height: 100vh;
-      padding: 25px 15px;
+      padding: 20px 12px;
     }
 
     .container {
       width: 100%;
-      max-width: 500px;
+      max-width: 520px;
       margin: auto;
     }
 
-    .card {
-      background: linear-gradient(180deg, #2b1048 0%, #160d2b 100%);
-      border: 2px solid #7442b8;
-      border-radius: 28px;
-      padding: 28px 20px;
-      margin-bottom: 18px;
+
+    /* =========================
+       APRESENTAÇÃO
+    ========================== */
+
+    .hero {
+      background: linear-gradient(135deg, #17063d, #43008a);
+      border: 2px solid #7c35d9;
+      border-radius: 25px;
+      padding: 25px 20px;
       text-align: center;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 0 30px rgba(130, 50, 255, 0.25);
     }
 
-    /* CABEÇALHO */
-
-    .emoji {
-      font-size: 42px;
-      margin-bottom: 12px;
+    .car-icon {
+      font-size: 60px;
+      margin-bottom: 10px;
     }
 
     h1 {
-      font-size: 30px;
-      line-height: 1.15;
-      margin-bottom: 15px;
-    }
-
-    .amarelo {
-      color: #ffd84d;
-    }
-
-    .texto {
-      font-size: 18px;
-      line-height: 1.55;
-      color: #f0edf5;
-    }
-
-    /* LOJINHA */
-
-    .lojinha {
-      padding-top: 10px;
-    }
-
-    .separador {
-      color: #ffd84d;
-      font-size: 20px;
-      margin: 15px 0;
-    }
-
-    .lojinha h2 {
-      color: #ffd84d;
-      font-size: 23px;
-      margin-bottom: 20px;
-    }
-
-    .lojinha p {
-      font-size: 17px;
-      line-height: 1.55;
-      margin-bottom: 18px;
-      color: #f4f1f7;
-    }
-
-    .destaque {
-      color: #ffd84d;
-      font-weight: bold;
-    }
-
-    /* PIX - TUDO EM UM QUADRADO */
-
-    .pix-card {
-      background: linear-gradient(180deg, #6516a0 0%, #2a1044 55%, #160d2b 100%);
-      border: 2px solid #8e55df;
-      border-radius: 28px;
-      padding: 28px 20px;
-      text-align: center;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-    }
-
-    .pix-card h2 {
-      font-size: 28px;
+      font-size: 32px;
+      line-height: 1.1;
       margin-bottom: 12px;
     }
 
-    .pix-card h2 span {
-      color: #ffd84d;
+    .yellow {
+      color: #ffd229;
     }
 
-    .pix-texto {
-      font-size: 16px;
-      line-height: 1.45;
-      margin-bottom: 20px;
-      color: #f5f1fa;
-    }
-
-    #qrcode {
-      background: white;
-      width: 230px;
-      height: 230px;
-      margin: 0 auto 22px;
-      padding: 10px;
-      border-radius: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    #qrcode img,
-    #qrcode canvas {
-      max-width: 100%;
-      max-height: 100%;
-    }
-
-    .botao-pix {
-      width: 100%;
-      border: none;
-      border-radius: 16px;
-      padding: 19px 15px;
+    .subtitle {
       font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-      background: linear-gradient(90deg, #ffd84d, #ff9d00);
-      color: #27103b;
-      margin-bottom: 20px;
-      transition: 0.2s;
+      line-height: 1.5;
+      color: #eeeeee;
     }
 
-    .botao-pix:hover {
-      transform: scale(1.02);
+
+    /* =========================
+       CARDS
+    ========================== */
+
+    .card {
+      background: #130b2e;
+      border: 2px solid #6331a5;
+      border-radius: 22px;
+      padding: 22px;
+      margin-top: 18px;
+      box-shadow: 0 8px 25px rgba(0,0,0,.35);
     }
 
-    .botao-pix:active {
-      transform: scale(0.98);
-    }
 
-    .copiado {
-      min-height: 25px;
-      color: #9cffaa;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
+    /* =========================
+       LOJINHA
+    ========================== */
 
-    /* DADOS PIX DENTRO DO MESMO QUADRADO */
-
-    .dados-pix {
-      background: rgba(255, 255, 255, 0.96);
-      color: #302348;
-      border-radius: 20px;
-      padding: 20px;
-      text-align: left;
-    }
-
-    .dados-pix h3 {
+    .shop {
       text-align: center;
-      font-size: 24px;
-      margin-bottom: 18px;
-      color: #49356d;
+      font-size: 18px;
+      line-height: 1.55;
     }
 
-    .linha {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      padding: 13px 0;
-      border-bottom: 1px solid #d5d5d5;
+    .shop-title {
+      font-size: 23px;
+      color: #ffd229;
+      font-weight: bold;
+      margin: 12px 0;
+    }
+
+    .shop strong {
+      color: #ffd229;
+    }
+
+    .shop-separator {
+      width: 75%;
+      height: 1px;
+      background: #71508f;
+      margin: 15px auto;
+    }
+
+
+    /* =========================
+       PIX - CARD PRINCIPAL
+    ========================== */
+
+    .pix-card {
+
+      background:
+        linear-gradient(
+          180deg,
+          #5a168c 0%,
+          #30104d 45%,
+          #170b2a 100%
+        );
+
+      border: 2px solid #7b42c8;
+
+      text-align: center;
+
+      padding: 24px;
+
+      overflow: hidden;
+
+    }
+
+
+    .pix-title {
+
+      font-size: 29px;
+
+      margin-bottom: 10px;
+
+      font-weight: bold;
+
+    }
+
+
+    .pix-title span {
+
+      color: #ffd229;
+
+    }
+
+
+    .instruction {
+
       font-size: 16px;
+
+      line-height: 1.5;
+
+      color: #eeeeee;
+
+      margin-bottom: 18px;
+
     }
 
-    .linha:last-child {
-      border-bottom: none;
+
+    /* =========================
+       QR CODE
+    ========================== */
+
+    .qr-container {
+
+      display: flex;
+
+      justify-content: center;
+
+      margin: 18px 0;
+
     }
+
+
+    .qr-container img {
+
+      width: 230px;
+
+      max-width: 100%;
+
+      height: auto;
+
+      background: white;
+
+      padding: 10px;
+
+      border-radius: 18px;
+
+      box-shadow: 0 8px 25px rgba(0,0,0,.35);
+
+    }
+
+
+    /* =========================
+       BOTÃO COPIAR
+    ========================== */
+
+    .copy-button {
+
+      width: 100%;
+
+      border: none;
+
+      border-radius: 16px;
+
+      padding: 18px;
+
+      font-size: 18px;
+
+      font-weight: bold;
+
+      cursor: pointer;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffb000,
+          #ff7a00
+        );
+
+      color: white;
+
+      box-shadow: 0 6px 18px rgba(255,122,0,.30);
+
+      transition: .2s;
+
+      margin-top: 8px;
+
+    }
+
+
+    .copy-button:hover {
+
+      transform: scale(1.02);
+
+    }
+
+
+    .copy-button:active {
+
+      transform: scale(.98);
+
+    }
+
+
+    .copied {
+
+      margin-top: 15px;
+
+      font-weight: bold;
+
+      color: #7CFF9B;
+
+      display: none;
+
+      font-size: 16px;
+
+      line-height: 1.5;
+
+    }
+
+
+    /* =========================
+       DADOS PIX - BANCO INTER
+    ========================== */
+
+    .pix-info {
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff,
+          #f3f3f3
+        );
+
+      color: #222;
+
+      border-radius: 20px;
+
+      padding: 20px;
+
+      margin-top: 22px;
+
+      text-align: left;
+
+      box-shadow:
+        0 8px 25px rgba(0,0,0,.25);
+
+      border-top: 5px solid #ff7a00;
+
+    }
+
+
+    .pix-info h3 {
+
+      text-align: center;
+
+      color: #ff7a00;
+
+      font-size: 24px;
+
+      margin-bottom: 18px;
+
+    }
+
+
+    .pix-info h3 span {
+
+      color: #333;
+
+    }
+
+
+    .row {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 15px;
+
+      padding: 13px 0;
+
+      border-bottom: 1px solid #dddddd;
+
+    }
+
+
+    .row:last-child {
+
+      border-bottom: none;
+
+    }
+
 
     .label {
+
       font-weight: bold;
-      white-space: nowrap;
+
+      color: #444;
+
+      font-size: 16px;
+
     }
 
-    .valor {
+
+    .value {
+
       text-align: right;
+
       font-weight: bold;
-      color: #5b3c87;
+
+      color: #333;
+
       word-break: break-word;
+
+      font-size: 16px;
+
     }
 
-    /* FINAL */
 
-    .final {
+    .pix-key {
+
+      color: #ff7a00;
+
+      text-decoration: underline;
+
+    }
+
+
+    /* =========================
+       BANCO INTER
+    ========================== */
+
+    .bank-inter {
+
+      margin-top: 18px;
+
+      padding-top: 16px;
+
+      border-top: 1px solid #dddddd;
+
       text-align: center;
-      margin-top: 20px;
-      color: #ffd84d;
-      font-size: 17px;
-      font-weight: bold;
+
     }
 
-    @media (max-width: 480px) {
+
+    .inter-name {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 10px;
+
+      font-size: 20px;
+
+      font-weight: bold;
+
+      color: #ff7a00;
+
+    }
+
+
+    .inter-logo {
+
+      width: 38px;
+
+      height: 38px;
+
+      border-radius: 10px;
+
+      background: #ff7a00;
+
+      color: white;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 22px;
+
+      font-weight: bold;
+
+    }
+
+
+    .bank-subtitle {
+
+      font-size: 13px;
+
+      color: #777;
+
+      margin-top: 5px;
+
+    }
+
+
+    /* =========================
+       GORJETA
+    ========================== */
+
+    .tip {
+
+      text-align: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          #21083f,
+          #12071f
+        );
+
+    }
+
+
+    .heart {
+
+      font-size: 55px;
+
+      margin-bottom: 10px;
+
+    }
+
+
+    .tip h2 {
+
+      font-size: 27px;
+
+      margin-bottom: 15px;
+
+    }
+
+
+    .tip p {
+
+      font-size: 18px;
+
+      line-height: 1.5;
+
+      color: #eeeeee;
+
+    }
+
+
+    .highlight {
+
+      color: #ffd229;
+
+      font-weight: bold;
+
+      font-size: 21px;
+
+    }
+
+
+    /* =========================
+       RODAPÉ
+    ========================== */
+
+    footer {
+
+      text-align: center;
+
+      padding: 25px 10px 10px;
+
+      color: #ffd229;
+
+      font-size: 17px;
+
+      font-weight: bold;
+
+    }
+
+
+    /* =========================
+       CELULAR
+    ========================== */
+
+    @media (max-width: 450px) {
 
       body {
         padding: 15px 10px;
       }
 
-      .card,
-      .pix-card {
-        padding: 24px 15px;
-      }
-
       h1 {
-        font-size: 27px;
+        font-size: 28px;
       }
 
-      #qrcode {
-        width: 210px;
-        height: 210px;
+      .card {
+        padding: 18px;
       }
 
-      .linha {
+      .pix-title {
+        font-size: 25px;
+      }
+
+      .row {
         flex-direction: column;
-        gap: 5px;
+        align-items: flex-start;
+        gap: 6px;
       }
 
-      .valor {
+      .value {
         text-align: left;
       }
+
+      .qr-container img {
+        width: 220px;
+      }
+
     }
+
   </style>
+
 </head>
+
 
 <body>
 
-  <div class="container">
 
-    <!-- APRESENTAÇÃO -->
-    <section class="card">
-
-      <div class="emoji">🚘</div>
-
-      <h1>
-        Me chamo<br>
-        <span class="amarelo">Amarildon</span>
-      </h1>
-
-      <p class="texto">
-        Trabalho como motorista de aplicativos e todos os dias
-        estou na estrada para levar você com segurança até seu destino.
-      </p>
-
-    </section>
+<div class="container">
 
 
-    <!-- LOJINHA -->
-    <section class="card lojinha">
+  <!-- =========================
+       APRESENTAÇÃO
+  ========================== -->
 
-      <div class="separador">🍬 ─────────────────</div>
+  <section class="hero">
 
-      <h2>CONHEÇA MINHA LOJINHA!</h2>
+    <div class="car-icon">
+      🚗
+    </div>
 
-      <p>
-        Durante sua viagem você também pode aproveitar alguns
-        produtos da minha lojinha.
-      </p>
+    <h1>
 
-      <p>
-        Ao comprar algo, você contribui para
-        <span class="destaque">
-          melhorar minha renda e me ajuda a conquistar meus objetivos.
-        </span>
-      </p>
+      Me chamo
 
-    </section>
+      <br>
 
+      <span class="yellow">
+        Amarildon
+      </span>
 
-    <!-- PIX - UM ÚNICO QUADRADO -->
-    <section class="pix-card">
-
-      <h2>
-        📱 Faça um <span>Pix</span>
-      </h2>
-
-      <p class="pix-texto">
-        Escaneie o QR Code ou clique no botão abaixo para copiar
-        o código Pix.
-      </p>
+    </h1>
 
 
-      <!-- QR CODE -->
-      <div id="qrcode"></div>
+    <p class="subtitle">
+
+      Trabalho como
+      <strong>motorista de aplicativos</strong>
+      e todos os dias estou na estrada para levar você com segurança até seu destino.
+
+    </p>
+
+  </section>
 
 
-      <!-- BOTÃO -->
-      <button class="botao-pix" onclick="copiarPix()">
-        📋 COPIAR CÓDIGO PIX
-      </button>
+
+  <!-- =========================
+       LOJINHA
+  ========================== -->
+
+  <section class="card">
+
+    <div class="shop">
+
+      🍬
+
+      <div class="shop-separator"></div>
 
 
-      <div id="mensagem" class="copiado"></div>
+      <div class="shop-title">
+
+        CONHEÇA MINHA LOJINHA!
+
+      </div>
 
 
-      <!-- DADOS -->
-      <div class="dados-pix">
+      Durante sua viagem você também pode aproveitar alguns produtos da minha lojinha.
 
-        <h3>💜 Dados do Pix</h3>
 
-        <div class="linha">
-          <span class="label">Chave Pix</span>
-          <span class="valor">31assis+inter@gmail.com</span>
+      <br><br>
+
+
+      Ao comprar algo, você contribui para
+
+      <strong>
+
+        melhorar minha renda e me ajuda a conquistar meus objetivos.
+
+      </strong>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       PIX
+  ========================== -->
+
+  <section class="card pix-card">
+
+
+    <div class="pix-title">
+
+      📱 Faça um <span>Pix</span>
+
+    </div>
+
+
+    <p class="instruction">
+
+      Escaneie o QR Code ou clique no botão abaixo para copiar o código Pix.
+
+    </p>
+
+
+
+    <!-- QR CODE DO ARQUIVO QUE VOCÊ SUBIU -->
+
+    <div class="qr-container">
+
+      <img
+        src="qrcode.png"
+        alt="QR Code Pix Banco Inter"
+      >
+
+    </div>
+
+
+
+    <!-- BOTÃO COPIAR -->
+
+    <button
+      class="copy-button"
+      onclick="copiarPix()"
+    >
+
+      📋 COPIAR CÓDIGO PIX
+
+    </button>
+
+
+
+    <!-- CONFIRMAÇÃO -->
+
+    <div
+      id="copied"
+      class="copied"
+    >
+
+      ✅ Código Pix copiado!
+
+      <br>
+
+      Agora é só abrir seu banco e usar Pix Copia e Cola.
+
+    </div>
+
+
+
+    <!-- =========================
+         DADOS DO PIX
+    ========================== -->
+
+    <div class="pix-info">
+
+
+      <h3>
+
+        🟠 <span>Dados do Pix</span>
+
+      </h3>
+
+
+
+      <!-- CHAVE -->
+
+      <div class="row">
+
+        <div class="label">
+
+          Chave Pix
+
         </div>
 
-        <div class="linha">
-          <span class="label">Nome</span>
-          <span class="valor">AMARILDON RIBEIRO DE ASSIS</span>
+
+        <div class="value pix-key">
+
+          31assis+inter@gmail.com
+
         </div>
 
       </div>
 
-    </section>
 
 
-    <div class="final">
-      💖 Sua presença já é especial! 💖
+      <!-- NOME -->
+
+      <div class="row">
+
+        <div class="label">
+
+          Nome
+
+        </div>
+
+
+        <div class="value">
+
+          AMARILDON RIBEIRO DE ASSIS
+
+        </div>
+
+      </div>
+
+
+
+      <!-- BANCO -->
+
+      <div class="bank-inter">
+
+        <div class="inter-name">
+
+          <div class="inter-logo">
+            i
+          </div>
+
+          Banco Inter
+
+        </div>
+
+
+        <div class="bank-subtitle">
+
+          Pagamento via Pix
+
+        </div>
+
+      </div>
+
+
     </div>
 
-  </div>
+
+  </section>
 
 
-  <!-- BIBLIOTECA PARA GERAR O QR CODE -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <!-- =========================
+       GORJETA
+  ========================== -->
+
+  <section class="card tip">
 
 
-  <script>
+    <div class="heart">
 
-    /*
-    ==================================================
-    CÓDIGO PIX COPIA E COLA
-    ==================================================
-    */
+      ❤️
 
-    const codigoPix =
-      "00020101021126450014br.gov.bcb.pix012331assis+inter@gmail.com5204000053039865802BR5920AMARILDON R DE ASSIS6008CURITIBA62070503***63046D83";
+    </div>
 
 
-    /*
-    ==================================================
-    GERA O QR CODE AUTOMATICAMENTE
-    ==================================================
-    */
+    <h2>
 
-    new QRCode(document.getElementById("qrcode"), {
-      text: codigoPix,
-      width: 210,
-      height: 210,
-      correctLevel: QRCode.CorrectLevel.M
-    });
+      Gostou da corrida?
+
+    </h2>
 
 
-    /*
-    ==================================================
-    COPIAR PIX
-    ==================================================
-    */
+    <p>
 
-    function copiarPix() {
+      <span class="highlight">
 
-      navigator.clipboard.writeText(codigoPix)
-        .then(function () {
+        Qualquer valor faz a diferença!
 
-          const mensagem = document.getElementById("mensagem");
+      </span>
 
-          mensagem.innerHTML = "✅ Código Pix copiado!";
 
-          setTimeout(function () {
-            mensagem.innerHTML = "";
-          }, 3000);
+      <br><br>
 
-        })
-        .catch(function () {
 
-          alert("Não foi possível copiar automaticamente. Tente novamente.");
+      Sua gorjeta me ajuda muito e incentiva meu trabalho todos os dias.
 
-        });
 
-    }
+      <br><br>
 
-  </script>
+
+      Obrigado pelo carinho e pela confiança! 🙏
+
+    </p>
+
+
+  </section>
+
+
+
+  <!-- RODAPÉ -->
+
+  <footer>
+
+    ❤️ Deus abençoe você sempre! ❤️
+
+  </footer>
+
+
+</div>
+
+
+
+<script>
+
+
+  /* =========================
+     CÓDIGO PIX - BANCO INTER
+  ========================== */
+
+  const codigoPix =
+    "00020101021126450014br.gov.bcb.pix012331assis+inter@gmail.com5204000053039865802BR5920AMARILDON R DE ASSIS6008CURITIBA62070503***63046D83";
+
+
+
+  /* =========================
+     COPIAR PIX
+  ========================== */
+
+  function copiarPix() {
+
+
+    navigator.clipboard.writeText(codigoPix)
+
+      .then(() => {
+
+        document.getElementById("copied").style.display = "block";
+
+      })
+
+      .catch(() => {
+
+
+        const textarea = document.createElement("textarea");
+
+        textarea.value = codigoPix;
+
+        textarea.style.position = "fixed";
+
+        textarea.style.opacity = "0";
+
+        document.body.appendChild(textarea);
+
+        textarea.select();
+
+        document.execCommand("copy");
+
+        document.body.removeChild(textarea);
+
+        document.getElementById("copied").style.display = "block";
+
+
+      });
+
+
+  }
+
+
+</script>
+
 
 </body>
+
 </html>
