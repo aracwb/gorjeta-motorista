@@ -1,632 +1,499 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Gorjeta do Motorista - Amarildon</title>
-
-    <style>
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #0d081d;
-            color: #ffffff;
-            min-height: 100vh;
-            padding: 30px 15px;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 480px;
-            margin: 0 auto;
-        }
-
-        /* =========================
-           CARD PRINCIPAL
-        ========================= */
-
-        .card-principal {
-            background: linear-gradient(
-                180deg,
-                #35146b 0%,
-                #1b102f 100%
-            );
-
-            border: 2px solid #7144c5;
-            border-radius: 24px;
-
-            padding: 32px 22px;
-
-            text-align: center;
-
-            box-shadow:
-                0 10px 30px rgba(0, 0, 0, 0.35);
-
-            margin-bottom: 20px;
-        }
-
-        .icone-carro {
-            font-size: 46px;
-            margin-bottom: 15px;
-        }
-
-        .titulo-apresentacao {
-            font-size: 30px;
-            font-weight: bold;
-            line-height: 1.1;
-            margin-bottom: 15px;
-        }
-
-        .nome {
-            color: #ffd83d;
-        }
-
-        .descricao {
-            font-size: 18px;
-            line-height: 1.5;
-            color: #eeeeee;
-        }
-
-        /* =========================
-           DIVISOR
-        ========================= */
-
-        .divisor {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-
-            margin: 28px 0 22px;
-        }
-
-        .linha {
-            height: 1px;
-            flex: 1;
-            background: #7d58b8;
-        }
-
-        .doce {
-            font-size: 22px;
-        }
-
-        /* =========================
-           LOJINHA
-        ========================= */
-
-        .titulo-lojinha {
-            color: #ffd83d;
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 22px;
-        }
-
-        .texto-lojinha {
-            font-size: 18px;
-            line-height: 1.55;
-            color: #eeeeee;
-        }
-
-        .destaque {
-            color: #ffd83d;
-            font-weight: bold;
-        }
-
-
-        /* =========================
-           PIX
-        ========================= */
-
-        .card-pix {
-            background: linear-gradient(
-                180deg,
-                #6814b4 0%,
-                #25073f 100%
-            );
-
-            border: 2px solid #8748d6;
-            border-radius: 24px;
-
-            padding: 30px 20px;
-
-            text-align: center;
-
-            margin-bottom: 20px;
-
-            box-shadow:
-                0 10px 30px rgba(0, 0, 0, 0.35);
-        }
-
-        .titulo-pix {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 12px;
-        }
-
-        .titulo-pix span {
-            color: #ffd83d;
-        }
-
-        .subtitulo-pix {
-            font-size: 16px;
-            color: #eeeeee;
-            margin-bottom: 20px;
-            line-height: 1.4;
-        }
-
-        .qr-code {
-            width: 230px;
-            max-width: 100%;
-            background: white;
-
-            padding: 12px;
-
-            border-radius: 14px;
-
-            margin: 0 auto 20px;
-        }
-
-        .qr-code img {
-            width: 100%;
-            display: block;
-        }
-
-        .botao-pix {
-            width: 100%;
-
-            border: none;
-
-            background: linear-gradient(
-                90deg,
-                #ffd23f,
-                #ff9d00
-            );
-
-            color: #24112f;
-
-            font-size: 18px;
-            font-weight: bold;
-
-            padding: 18px;
-
-            border-radius: 14px;
-
-            cursor: pointer;
-
-            transition: 0.2s;
-
-            margin-top: 10px;
-        }
-
-        .botao-pix:hover {
-            transform: scale(1.02);
-        }
-
-        .mensagem-copiado {
-            display: none;
-
-            color: #9cffb0;
-
-            font-size: 16px;
-            font-weight: bold;
-
-            margin-top: 18px;
-        }
-
-
-        /* =========================
-           DADOS PIX
-        ========================= */
-
-        .dados-pix {
-            background: #ffffff;
-
-            color: #251339;
-
-            border-radius: 22px;
-
-            padding: 25px 20px;
-
-            border: 2px solid #7442ba;
-
-            box-shadow:
-                0 10px 25px rgba(0, 0, 0, 0.25);
-        }
-
-        .dados-titulo {
-            text-align: center;
-
-            font-size: 24px;
-            font-weight: bold;
-
-            color: #553184;
-
-            margin-bottom: 20px;
-        }
-
-        .linha-dado {
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            gap: 15px;
-
-            padding: 13px 0;
-
-            border-bottom: 1px solid #dddddd;
-        }
-
-        .linha-dado:last-child {
-            border-bottom: none;
-        }
-
-        .label {
-            font-weight: bold;
-        }
-
-        .valor {
-            text-align: right;
-
-            color: #553184;
-
-            font-weight: bold;
-        }
-
-        .chave-pix {
-            color: #553184;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
-
-        /* =========================
-           RODAPÉ
-        ========================= */
-
-        .rodape {
-            text-align: center;
-
-            margin-top: 25px;
-
-            color: #ffd83d;
-
-            font-size: 16px;
-
-            line-height: 1.5;
-        }
-
-
-        /* =========================
-           CELULAR
-        ========================= */
-
-        @media (max-width: 500px) {
-
-            body {
-                padding: 15px 10px;
-            }
-
-            .card-principal,
-            .card-pix {
-                padding: 25px 16px;
-            }
-
-            .titulo-apresentacao {
-                font-size: 27px;
-            }
-
-            .descricao,
-            .texto-lojinha {
-                font-size: 16px;
-            }
-
-            .titulo-lojinha {
-                font-size: 21px;
-            }
-
-            .linha-dado {
-                font-size: 14px;
-            }
-
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gorjeta do Motorista Amarildon</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #10071f;
+    color: white;
+    padding: 25px 15px;
+}
+
+.container {
+    width: 100%;
+    max-width: 520px;
+    margin: auto;
+}
+
+
+/* =========================
+   CARD GERAL
+========================= */
+
+.card {
+    background: #1b1030;
+    border: 2px solid #7545b8;
+    border-radius: 25px;
+    padding: 30px 22px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+/* =========================
+   APRESENTAÇÃO + LOJINHA
+========================= */
+
+.apresentacao {
+    background: linear-gradient(180deg, #351160, #24103f);
+}
+
+.icone-carro {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.nome {
+    color: #ffd84d;
+}
+
+.texto {
+    font-size: 17px;
+    line-height: 1.5;
+    color: #eeeeee;
+}
+
+.separador {
+    margin: 28px 0 20px;
+    color: #ffd84d;
+    font-size: 20px;
+}
+
+.lojinha-titulo {
+    color: #ffd84d;
+    font-size: 23px;
+    margin-bottom: 22px;
+}
+
+.lojinha-texto {
+    font-size: 17px;
+    line-height: 1.55;
+    color: #f2f2f2;
+}
+
+.lojinha-texto strong {
+    color: #ffd84d;
+}
+
+
+/* =========================
+   PIX - UM ÚNICO CARD
+========================= */
+
+.pix-card {
+    background: linear-gradient(180deg, #7119b4, #2d124d);
+    border: 2px solid #8e55d6;
+}
+
+.pix-titulo {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.pix-titulo span {
+    color: #ffd84d;
+}
+
+.pix-texto {
+    font-size: 17px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #eeeeee;
+}
+
+
+/* QR CODE */
+
+.qr-box {
+    background: white;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    border-radius: 15px;
+    margin-bottom: 22px;
+}
+
+.qrcode {
+    width: 210px;
+    max-width: 100%;
+    display: block;
+}
+
+
+/* BOTÃO PIX */
+
+.botao-pix {
+    width: 100%;
+    border: none;
+    border-radius: 16px;
+    padding: 20px 15px;
+    background: linear-gradient(90deg, #ffd84d, #ff9d16);
+    color: #25102e;
+    font-size: 19px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.botao-pix:active {
+    transform: scale(0.98);
+}
+
+
+/* MENSAGEM COPIADO */
+
+.mensagem-copiado {
+    margin-top: 15px;
+    color: #9cffb1;
+    font-weight: bold;
+    display: none;
+}
+
+
+/* =========================
+   SEPARADOR PIX
+========================= */
+
+.pix-separador {
+    height: 2px;
+    background: rgba(255,255,255,0.25);
+    margin: 30px 0;
+}
+
+
+/* =========================
+   DADOS DO PIX
+========================= */
+
+.dados-pix {
+    background: #ffffff;
+    color: #29203b;
+    border-radius: 18px;
+    padding: 22px 18px;
+    text-align: left;
+}
+
+.dados-titulo {
+    text-align: center;
+    color: #4b3b70;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.linha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 13px 0;
+    border-bottom: 1px solid #d2d2d2;
+}
+
+.linha:last-child {
+    border-bottom: none;
+}
+
+.campo {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.valor {
+    text-align: right;
+    color: #554174;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.chave {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+.rodape {
+    text-align: center;
+    color: #ffd84d;
+    font-size: 16px;
+    padding: 10px 5px 25px;
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 20px 10px;
+    }
+
+    .card {
+        padding: 25px 18px;
+        border-radius: 22px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    .texto,
+    .lojinha-texto,
+    .pix-texto {
+        font-size: 16px;
+    }
+
+    .pix-titulo {
+        font-size: 27px;
+    }
+
+    .qrcode {
+        width: 190px;
+    }
+
+    .linha {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .valor {
+        text-align: left;
+    }
+
+}
+
+</style>
 </head>
 
 
 <body>
 
-    <div class="container">
+<main class="container">
 
 
-        <!-- =========================
-             APRESENTAÇÃO + LOJINHA
-        ========================= -->
+<!-- =====================================
+     APRESENTAÇÃO + LOJINHA
+===================================== -->
 
-        <div class="card-principal">
+<section class="card apresentacao">
 
-            <div class="icone-carro">
-                🚙
+    <div class="icone-carro">🚐</div>
+
+    <h1>
+        Me chamo<br>
+        <span class="nome">Amarildon</span>
+    </h1>
+
+    <p class="texto">
+        Trabalho como motorista de aplicativos e todos os dias
+        estou na estrada para levar você com segurança até seu destino.
+    </p>
+
+
+    <div class="separador">
+        🍬 ─────────────
+    </div>
+
+
+    <h2 class="lojinha-titulo">
+        CONHEÇA MINHA LOJINHA!
+    </h2>
+
+
+    <p class="lojinha-texto">
+
+        Durante sua viagem você também pode aproveitar alguns produtos
+        da minha lojinha.
+
+        <br><br>
+
+        Ao comprar algo, você contribui para
+        <strong>
+            melhorar minha renda e me ajuda a conquistar meus objetivos.
+        </strong>
+
+    </p>
+
+</section>
+
+
+
+<!-- =====================================
+     PIX + DADOS EM UM ÚNICO QUADRADO
+===================================== -->
+
+<section class="card pix-card">
+
+    <h2 class="pix-titulo">
+        📱 Faça um <span>Pix</span>
+    </h2>
+
+
+    <p class="pix-texto">
+        Escaneie o QR Code ou clique no botão abaixo para copiar a chave Pix.
+    </p>
+
+
+    <!-- QR CODE -->
+
+    <div class="qr-box">
+
+        <img
+            src="qrcode.png"
+            alt="QR Code Pix"
+            class="qrcode"
+        >
+
+    </div>
+
+
+    <!-- BOTÃO -->
+
+    <button
+        class="botao-pix"
+        onclick="copiarPix()"
+    >
+        📋 COPIAR CÓDIGO PIX
+    </button>
+
+
+    <div
+        class="mensagem-copiado"
+        id="mensagemCopiado"
+    >
+        ✅ Chave Pix copiada!
+    </div>
+
+
+    <!-- SEPARADOR -->
+
+    <div class="pix-separador"></div>
+
+
+    <!-- DADOS DO PIX -->
+
+    <div class="dados-pix">
+
+
+        <h2 class="dados-titulo">
+            💜 Dados do Pix
+        </h2>
+
+
+        <div class="linha">
+
+            <div class="campo">
+                Chave Pix
             </div>
 
-
-            <div class="titulo-apresentacao">
-
-                Me chamo<br>
-
-                <span class="nome">
-                    Amarildon
-                </span>
-
+            <div class="valor chave">
+                (41) 99911-4745
             </div>
-
-
-            <p class="descricao">
-
-                Trabalho como motorista de aplicativos
-                e todos os dias estou na estrada para levar
-                você com segurança até seu destino.
-
-            </p>
-
-
-            <!-- DIVISOR -->
-
-            <div class="divisor">
-
-                <div class="linha"></div>
-
-                <div class="doce">
-                    🍬
-                </div>
-
-                <div class="linha"></div>
-
-            </div>
-
-
-            <!-- LOJINHA -->
-
-            <div class="titulo-lojinha">
-
-                CONHEÇA MINHA LOJINHA!
-
-            </div>
-
-
-            <p class="texto-lojinha">
-
-                Durante sua viagem você também pode aproveitar
-                alguns produtos da minha lojinha.
-
-                <br><br>
-
-                Ao comprar algo, você contribui para
-                <span class="destaque">
-                    melhorar minha renda e me ajuda a conquistar
-                    meus objetivos.
-                </span>
-
-            </p>
-
 
         </div>
 
 
+        <div class="linha">
 
-        <!-- =========================
-             PIX
-        ========================= -->
-
-        <div class="card-pix">
-
-            <div class="titulo-pix">
-
-                📱 Faça um <span>Pix</span>
-
+            <div class="campo">
+                Nome
             </div>
 
-
-            <div class="subtitulo-pix">
-
-                Escaneie o QR Code ou clique no botão abaixo
-                para copiar o código Pix.
-
+            <div class="valor">
+                Amarildon Ribeiro de Assis
             </div>
-
-
-            <!-- QR CODE -->
-            <div class="qr-code">
-
-                <!-- COLOQUE AQUI A IMAGEM DO SEU QR CODE -->
-
-                <img
-                    src="SEU-QR-CODE.png"
-                    alt="QR Code Pix"
-                >
-
-            </div>
-
-
-            <!-- BOTÃO -->
-
-            <button
-                class="botao-pix"
-                onclick="copiarPix()"
-            >
-
-                📋 COPIAR CÓDIGO PIX
-
-            </button>
-
-
-            <div
-                class="mensagem-copiado"
-                id="mensagemCopiado"
-            >
-
-                ✅ Código Pix copiado!
-
-                <br>
-
-                Agora é só abrir seu banco e usar
-                Pix Copia e Cola.
-
-            </div>
-
 
         </div>
 
 
+        <div class="linha">
 
-        <!-- =========================
-             DADOS DO PIX
-        ========================= -->
-
-        <div class="dados-pix">
-
-            <div class="dados-titulo">
-
-                💜 Dados do Pix
-
+            <div class="campo">
+                Banco
             </div>
 
-
-            <div class="linha-dado">
-
-                <div class="label">
-                    Chave Pix
-                </div>
-
-                <div
-                    class="valor chave-pix"
-                    onclick="copiarChave()"
-                >
-
-                    (41) 99911-4745
-
-                </div>
-
+            <div class="valor">
+                Nu Pagamentos S.A.
             </div>
-
-
-            <div class="linha-dado">
-
-                <div class="label">
-                    Nome
-                </div>
-
-                <div class="valor">
-
-                    Amarildon Ribeiro de Assis
-
-                </div>
-
-            </div>
-
-
-            <div class="linha-dado">
-
-                <div class="label">
-                    Banco
-                </div>
-
-                <div class="valor">
-
-                    Nu Pagamentos S.A.
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-
-        <!-- RODAPÉ -->
-
-        <div class="rodape">
-
-            💖 Sua presença já é especial! 💖
 
         </div>
 
 
     </div>
 
-
-
-    <script>
-
-        /*
-        ========================================
-        COLE AQUI O SEU CÓDIGO PIX COPIA E COLA
-        ========================================
-        */
-
-        const codigoPix = `
-COLE_AQUI_SEU_CODIGO_PIX_COMPLETO
-        `;
-
-
-        function copiarPix() {
-
-            navigator.clipboard.writeText(
-                codigoPix.trim()
-            ).then(() => {
-
-                const mensagem =
-                    document.getElementById(
-                        "mensagemCopiado"
-                    );
-
-                mensagem.style.display = "block";
-
-
-                setTimeout(() => {
-
-                    mensagem.style.display = "none";
-
-                }, 5000);
-
-            });
-
-        }
+</section>
 
 
 
-        function copiarChave() {
+<div class="rodape">
+    💜 Sua presença já é especial! 💜
+</div>
 
-            const chave =
-                "(41) 99911-4745";
+
+</main>
 
 
-            navigator.clipboard.writeText(
-                chave
-            ).then(() => {
 
-                alert(
-                    "Chave Pix copiada!"
-                );
+<!-- =====================================
+     JAVASCRIPT
+===================================== -->
 
-            });
+<script>
 
-        }
+function copiarPix() {
 
-    </script>
+    const chavePix = "(41) 99911-4745";
+
+    navigator.clipboard.writeText(chavePix)
+    .then(function() {
+
+        const mensagem =
+            document.getElementById("mensagemCopiado");
+
+        mensagem.style.display = "block";
+
+        setTimeout(function() {
+
+            mensagem.style.display = "none";
+
+        }, 3000);
+
+    })
+    .catch(function() {
+
+        alert(
+            "Chave Pix: " + chavePix
+        );
+
+    });
+
+}
+
+</script>
 
 
 </body>
-
 </html>
