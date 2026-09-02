@@ -440,14 +440,14 @@ h1 {
 
 
 /* =====================================================
-   LOGO INTER
+   LOGO INTER NO TÍTULO
 ===================================================== */
 
 .inter-logo-title {
 
-    width: 46px;
+    width: 48px;
 
-    height: 40px;
+    height: 42px;
 
     object-fit: contain;
 
@@ -532,19 +532,6 @@ h1 {
 
     justify-content: center;
 
-    gap: 9px;
-
-}
-
-
-.inter-bank-icon {
-
-    width: 38px;
-
-    height: 38px;
-
-    object-fit: contain;
-
 }
 
 
@@ -555,6 +542,8 @@ h1 {
     flex-direction: column;
 
     justify-content: center;
+
+    text-align: center;
 
 }
 
@@ -598,14 +587,36 @@ h1 {
             #12071f
         );
 
+    padding:
+        28px 22px;
+
 }
 
 
-.heart {
+/* =====================================================
+   TÍTULO DA GORJETA
+===================================================== */
 
-    font-size: 55px;
+.tip-title {
 
-    margin-bottom: 10px;
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.tip-heart {
+
+    font-size: 40px;
+
+    line-height: 1;
 
 }
 
@@ -614,21 +625,16 @@ h1 {
 
     font-size: 27px;
 
-    margin-bottom: 15px;
+    margin: 0;
+
+    color: white;
 
 }
 
 
-.tip p {
-
-    font-size: 18px;
-
-    line-height: 1.5;
-
-    color: #eeeeee;
-
-}
-
+/* =====================================================
+   DESTAQUE
+===================================================== */
 
 .highlight {
 
@@ -638,18 +644,38 @@ h1 {
 
     font-size: 21px;
 
+    margin-bottom: 28px;
+
 }
 
 
 /* =====================================================
-   FOOTER
+   TEXTO DA GORJETA
+===================================================== */
+
+.tip p {
+
+    font-size: 18px;
+
+    line-height: 1.5;
+
+    color: #eeeeee;
+
+    margin-top: 22px;
+
+}
+
+
+/* =====================================================
+   RODAPÉ
 ===================================================== */
 
 footer {
 
     text-align: center;
 
-    padding: 25px 10px 10px;
+    padding:
+        20px 10px 10px;
 
     color: #ffd229;
 
@@ -661,21 +687,24 @@ footer {
 
 
 /* =====================================================
-   CELULAR
+   RESPONSIVO
 ===================================================== */
 
 @media (max-width: 450px) {
 
+
     body {
 
-        padding: 15px 10px;
+        padding:
+            15px 10px;
 
     }
 
 
     .hero {
 
-        padding: 22px 16px;
+        padding:
+            22px 16px;
 
     }
 
@@ -731,9 +760,9 @@ footer {
 
     .inter-logo-title {
 
-        width: 40px;
+        width: 42px;
 
-        height: 36px;
+        height: 37px;
 
     }
 
@@ -769,9 +798,45 @@ footer {
     }
 
 
-    .inter-text strong {
+    .tip {
 
-        font-size: 20px;
+        padding:
+            25px 18px;
+
+    }
+
+
+    .tip-title {
+
+        gap: 9px;
+
+    }
+
+
+    .tip-heart {
+
+        font-size: 34px;
+
+    }
+
+
+    .tip h2 {
+
+        font-size: 24px;
+
+    }
+
+
+    .highlight {
+
+        font-size: 19px;
+
+    }
+
+
+    .tip p {
+
+        font-size: 16px;
 
     }
 
@@ -799,6 +864,7 @@ footer {
         <div class="car-icon">
             🚗
         </div>
+
 
         <h1>
 
@@ -838,6 +904,7 @@ footer {
         🍬
 
         <div class="shop-separator"></div>
+
 
         <div class="shop-title">
 
@@ -887,6 +954,7 @@ footer {
     </p>
 
 
+
     <!-- QR CODE -->
 
     <div class="qr-container">
@@ -897,6 +965,7 @@ footer {
         >
 
     </div>
+
 
 
     <!-- BOTÃO COPIAR -->
@@ -911,7 +980,8 @@ footer {
     </button>
 
 
-    <!-- MENSAGEM -->
+
+    <!-- MENSAGEM DE CÓPIA -->
 
     <div
         id="copied"
@@ -935,7 +1005,7 @@ footer {
     <div class="pix-info">
 
 
-        <!-- TÍTULO COM LOGO DO INTER -->
+        <!-- LOGO + TÍTULO -->
 
         <div class="pix-data-title">
 
@@ -944,6 +1014,7 @@ footer {
                 alt="Banco Inter"
                 class="inter-logo-title"
             >
+
 
             <span>
                 Dados do Pix
@@ -958,12 +1029,16 @@ footer {
         <div class="pix-row">
 
             <div class="pix-label">
+
                 Chave Pix
+
             </div>
 
 
             <div class="pix-value pix-key">
+
                 31assis+inter@gmail.com
+
             </div>
 
         </div>
@@ -975,12 +1050,16 @@ footer {
         <div class="pix-row">
 
             <div class="pix-label">
+
                 Nome
+
             </div>
 
 
             <div class="pix-value">
+
                 AMARILDON RIBEIRO DE ASSIS
+
             </div>
 
         </div>
@@ -1024,33 +1103,40 @@ footer {
 <section class="card tip">
 
 
-    <div class="heart">
-        ❤️
+    <div class="tip-title">
+
+
+        <span class="tip-heart">
+            ❤️
+        </span>
+
+
+        <h2>
+            Gostou da corrida?
+        </h2>
+
+
     </div>
 
 
-    <h2>
-        Gostou da corrida?
-    </h2>
+
+    <div class="highlight">
+
+        Qualquer valor faz a diferença!
+
+    </div>
+
 
 
     <p>
 
-        <span class="highlight">
-            Qualquer valor faz a diferença!
-        </span>
-
-
-        <br>
-        <br>
-
-
         Sua gorjeta me ajuda muito e incentiva meu trabalho todos os dias.
 
+    </p>
 
-        <br>
-        <br>
 
+
+    <p>
 
         Obrigado pelo carinho e pela confiança! 🙏
 
@@ -1067,7 +1153,7 @@ footer {
 
 <footer>
 
-    💖 Sua presença já é especial! 💖
+    Sua presença já é especial! 💖
 
 </footer>
 
@@ -1099,9 +1185,11 @@ function copiarPix() {
 
         .then(() => {
 
+
             document
                 .getElementById("copied")
                 .style.display = "block";
+
 
         })
 
@@ -1145,6 +1233,7 @@ function copiarPix() {
             document
                 .getElementById("copied")
                 .style.display = "block";
+
 
         });
 
