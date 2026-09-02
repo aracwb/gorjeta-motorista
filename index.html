@@ -3,818 +3,883 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Gorjeta do Motorista - Amarildon</title>
+<title>Gorjeta do Motorista - Amarildon</title>
 
-  <style>
+<style>
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+/* =========================================================
+   RESET
+========================================================= */
 
-    body {
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-      font-family:
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+
+    font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-      background: #09051c;
+    background:
+        linear-gradient(
+            135deg,
+            #09051c,
+            #16052d
+        );
 
-      color: white;
+    color: white;
 
-      min-height: 100vh;
+    min-height: 100vh;
 
-      padding: 20px 12px;
+    padding: 20px 12px;
+
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+
+    width: 100%;
+
+    max-width: 520px;
+
+    margin: auto;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    background:
+        linear-gradient(
+            135deg,
+            #18063d,
+            #47008d
+        );
+
+    border: 2px solid #7c35d9;
+
+    border-radius: 25px;
+
+    padding: 25px 20px;
+
+    box-shadow:
+        0 0 30px
+        rgba(130,50,255,.25);
+
+}
+
+
+.hero-top {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    margin-bottom: 16px;
+
+}
+
+
+.car-icon {
+
+    font-size: 45px;
+
+    line-height: 1;
+
+}
+
+
+h1 {
+
+    font-size: 30px;
+
+    line-height: 1.1;
+
+    text-align: left;
+
+}
+
+
+.yellow {
+
+    color: #ffd229;
+
+}
+
+
+.subtitle {
+
+    font-size: 18px;
+
+    line-height: 1.5;
+
+    color: #eeeeee;
+
+    text-align: center;
+
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.card {
+
+    background: #130b2e;
+
+    border:
+        2px solid #6331a5;
+
+    border-radius: 22px;
+
+    padding: 22px;
+
+    margin-top: 18px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.35);
+
+}
+
+
+/* =========================================================
+   LOJINHA
+========================================================= */
+
+.shop {
+
+    text-align: center;
+
+    font-size: 18px;
+
+    line-height: 1.55;
+
+}
+
+
+.shop-separator {
+
+    width: 75%;
+
+    height: 1px;
+
+    background: #71508f;
+
+    margin: 12px auto 15px;
+
+}
+
+
+.shop-title {
+
+    font-size: 23px;
+
+    color: #ffd229;
+
+    font-weight: bold;
+
+    margin-bottom: 12px;
+
+}
+
+
+.shop strong {
+
+    color: #ffd229;
+
+}
+
+
+/* =========================================================
+   PIX CARD
+========================================================= */
+
+.pix-card {
+
+    background:
+        linear-gradient(
+            180deg,
+            #5a168c 0%,
+            #30104d 45%,
+            #170b2a 100%
+        );
+
+    border:
+        2px solid #7b42c8;
+
+    text-align: center;
+
+    padding: 24px;
+
+}
+
+
+.pix-title-main {
+
+    font-size: 29px;
+
+    margin-bottom: 10px;
+
+    font-weight: bold;
+
+}
+
+
+.pix-title-main span {
+
+    color: #ffd229;
+
+}
+
+
+.instruction {
+
+    font-size: 16px;
+
+    line-height: 1.5;
+
+    color: #eeeeee;
+
+    margin-bottom: 18px;
+
+}
+
+
+/* =========================================================
+   QR CODE
+========================================================= */
+
+.qr-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin: 18px 0;
+
+}
+
+
+.qr-container img {
+
+    width: 230px;
+
+    max-width: 100%;
+
+    height: auto;
+
+    background: white;
+
+    padding: 10px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.35);
+
+}
+
+
+/* =========================================================
+   BOTÃO PIX
+========================================================= */
+
+.copy-button {
+
+    width: 100%;
+
+    border: none;
+
+    border-radius: 16px;
+
+    padding: 18px;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffb000,
+            #ff6900
+        );
+
+    color: white;
+
+    box-shadow:
+        0 6px 18px
+        rgba(255,105,0,.30);
+
+    transition: .2s;
+
+    margin-top: 8px;
+
+}
+
+
+.copy-button:hover {
+
+    transform: scale(1.02);
+
+}
+
+
+.copy-button:active {
+
+    transform: scale(.98);
+
+}
+
+
+.copied {
+
+    margin-top: 15px;
+
+    font-weight: bold;
+
+    color: #7CFF9B;
+
+    display: none;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   DADOS DO PIX
+========================================================= */
+
+.pix-info {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f5f5f5
+        );
+
+    color: #161616;
+
+    border-radius: 20px;
+
+    margin-top: 22px;
+
+    padding: 23px 20px 19px;
+
+    text-align: left;
+
+    border-top:
+        5px solid #ff6900;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.25);
+
+}
+
+
+/* =========================================================
+   TÍTULO DADOS DO PIX
+========================================================= */
+
+.pix-data-title {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* bolinha laranja */
+
+.pix-data-title-icon {
+
+    width: 24px;
+
+    height: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff7a00,
+            #ff4b1f
+        );
+
+    border-radius: 50%;
+
+    flex-shrink: 0;
+
+}
+
+
+/* =========================================================
+   LINHAS CHAVE / NOME
+========================================================= */
+
+.pix-row {
+
+    display: grid;
+
+    grid-template-columns:
+        90px
+        1fr;
+
+    align-items: center;
+
+    min-height: 48px;
+
+    border-bottom:
+        1px solid #dedede;
+
+}
+
+
+.pix-label {
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    color: #202020;
+
+}
+
+
+.pix-value {
+
+    text-align: right;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    color: #202020;
+
+    word-break: break-word;
+
+}
+
+
+.pix-key {
+
+    color: #ff6900;
+
+}
+
+
+/* =========================================================
+   BANCO INTER
+========================================================= */
+
+.pix-bank {
+
+    padding-top: 18px;
+
+}
+
+
+.inter-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+}
+
+
+/* =========================================================
+   ÍCONE DO INTER
+   Feito em CSS — não precisa de imagem
+========================================================= */
+
+.inter-logo {
+
+    position: relative;
+
+    width: 48px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+/* leque do símbolo */
+
+.inter-rays {
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 5px;
+
+    width: 23px;
+
+    height: 23px;
+
+    overflow: hidden;
+
+}
+
+
+.inter-rays::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 25px;
+
+    height: 25px;
+
+    border-radius: 50%;
+
+    border-top:
+        3px solid #ff6900;
+
+    border-right:
+        3px solid transparent;
+
+    transform:
+        rotate(-35deg);
+
+}
+
+
+.inter-rays::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 4px;
+
+    top: 4px;
+
+    width: 22px;
+
+    height: 22px;
+
+    border-radius: 50%;
+
+    border-top:
+        2px solid #ff6900;
+
+    border-right:
+        2px solid transparent;
+
+    transform:
+        rotate(-35deg);
+
+}
+
+
+/* letra i */
+
+.inter-i {
+
+    position: absolute;
+
+    left: 18px;
+
+    top: 5px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 34px;
+
+    font-weight: 800;
+
+    color: #ff6900;
+
+    line-height: 1;
+
+}
+
+
+/* =========================================================
+   TEXTO BANCO INTER
+========================================================= */
+
+.inter-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+
+.inter-text strong {
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    color: #ff6900;
+
+    line-height: 1.1;
+
+}
+
+
+.inter-text small {
+
+    margin-top: 4px;
+
+    font-size: 13px;
+
+    color: #888;
+
+}
+
+
+/* =========================================================
+   GORJETA
+========================================================= */
+
+.tip {
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #21083f,
+            #12071f
+        );
+
+}
+
+
+.heart {
+
+    font-size: 55px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.tip h2 {
+
+    font-size: 27px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.tip p {
+
+    font-size: 18px;
+
+    line-height: 1.5;
+
+    color: #eeeeee;
+
+}
+
+
+.highlight {
+
+    color: #ffd229;
+
+    font-weight: bold;
+
+    font-size: 21px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    text-align: center;
+
+    padding: 25px 10px 10px;
+
+    color: #ffd229;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 450px) {
+
+    body {
+
+        padding: 15px 10px;
 
     }
 
-
-    .container {
-
-      width: 100%;
-
-      max-width: 520px;
-
-      margin: auto;
-
-    }
-
-
-    /* ========================================
-       APRESENTAÇÃO
-    ======================================== */
 
     .hero {
 
-      background:
-        linear-gradient(
-          135deg,
-          #17063d,
-          #43008a
-        );
-
-      border: 2px solid #7c35d9;
-
-      border-radius: 25px;
-
-      padding: 25px 20px;
-
-      box-shadow:
-        0 0 30px
-        rgba(130, 50, 255, 0.25);
+        padding: 22px 16px;
 
     }
 
 
     .hero-top {
 
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      gap: 14px;
-
-      margin-bottom: 15px;
+        gap: 10px;
 
     }
 
 
     .car-icon {
 
-      font-size: 48px;
-
-      line-height: 1;
-
-      flex-shrink: 0;
+        font-size: 40px;
 
     }
 
 
     h1 {
 
-      font-size: 30px;
-
-      line-height: 1.1;
-
-      text-align: left;
-
-    }
-
-
-    .yellow {
-
-      color: #ffd229;
+        font-size: 26px;
 
     }
 
 
     .subtitle {
 
-      font-size: 18px;
-
-      line-height: 1.5;
-
-      color: #eeeeee;
-
-      text-align: center;
+        font-size: 16px;
 
     }
 
-
-    /* ========================================
-       CARDS
-    ======================================== */
 
     .card {
 
-      background: #130b2e;
-
-      border: 2px solid #6331a5;
-
-      border-radius: 22px;
-
-      padding: 22px;
-
-      margin-top: 18px;
-
-      box-shadow:
-        0 8px 25px
-        rgba(0,0,0,.35);
-
-    }
-
-
-    /* ========================================
-       LOJINHA
-    ======================================== */
-
-    .shop {
-
-      text-align: center;
-
-      font-size: 18px;
-
-      line-height: 1.55;
-
-    }
-
-
-    .shop-title {
-
-      font-size: 23px;
-
-      color: #ffd229;
-
-      font-weight: bold;
-
-      margin: 12px 0;
-
-    }
-
-
-    .shop strong {
-
-      color: #ffd229;
-
-    }
-
-
-    .shop-separator {
-
-      width: 75%;
-
-      height: 1px;
-
-      background: #71508f;
-
-      margin: 15px auto;
-
-    }
-
-
-    /* ========================================
-       PIX - CARD PRINCIPAL
-    ======================================== */
-
-    .pix-card {
-
-      background:
-        linear-gradient(
-          180deg,
-          #5a168c 0%,
-          #30104d 45%,
-          #170b2a 100%
-        );
-
-      border: 2px solid #7b42c8;
-
-      text-align: center;
-
-      padding: 24px;
-
-      overflow: hidden;
+        padding: 18px;
 
     }
 
 
     .pix-title-main {
 
-      font-size: 29px;
-
-      margin-bottom: 10px;
-
-      font-weight: bold;
+        font-size: 25px;
 
     }
 
-
-    .pix-title-main span {
-
-      color: #ffd229;
-
-    }
-
-
-    .instruction {
-
-      font-size: 16px;
-
-      line-height: 1.5;
-
-      color: #eeeeee;
-
-      margin-bottom: 18px;
-
-    }
-
-
-    /* ========================================
-       QR CODE
-    ======================================== */
-
-    .qr-container {
-
-      display: flex;
-
-      justify-content: center;
-
-      margin: 18px 0;
-
-    }
-
-
-    .qr-container img {
-
-      width: 230px;
-
-      max-width: 100%;
-
-      height: auto;
-
-      background: white;
-
-      padding: 10px;
-
-      border-radius: 18px;
-
-      box-shadow:
-        0 8px 25px
-        rgba(0,0,0,.35);
-
-    }
-
-
-    /* ========================================
-       BOTÃO COPIAR
-    ======================================== */
-
-    .copy-button {
-
-      width: 100%;
-
-      border: none;
-
-      border-radius: 16px;
-
-      padding: 18px;
-
-      font-size: 18px;
-
-      font-weight: bold;
-
-      cursor: pointer;
-
-      background:
-        linear-gradient(
-          135deg,
-          #ffb000,
-          #ff7a00
-        );
-
-      color: white;
-
-      box-shadow:
-        0 6px 18px
-        rgba(255,122,0,.30);
-
-      transition: .2s;
-
-      margin-top: 8px;
-
-    }
-
-
-    .copy-button:hover {
-
-      transform: scale(1.02);
-
-    }
-
-
-    .copy-button:active {
-
-      transform: scale(.98);
-
-    }
-
-
-    .copied {
-
-      margin-top: 15px;
-
-      font-weight: bold;
-
-      color: #7CFF9B;
-
-      display: none;
-
-      font-size: 16px;
-
-      line-height: 1.5;
-
-    }
-
-
-    /* ========================================
-       DADOS DO PIX
-    ======================================== */
-
-    .pix-info {
-
-      background:
-        linear-gradient(
-          135deg,
-          #ffffff,
-          #f4f4f4
-        );
-
-      color: #222;
-
-      border-radius: 20px;
-
-      padding: 22px 20px 18px;
-
-      margin-top: 22px;
-
-      text-align: left;
-
-      box-shadow:
-        0 8px 25px
-        rgba(0,0,0,.25);
-
-      border-top: 5px solid #ff6900;
-
-    }
-
-
-    /* ========================================
-       TÍTULO DADOS PIX
-    ======================================== */
 
     .pix-data-title {
 
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      gap: 10px;
-
-      font-size: 25px;
-
-      font-weight: 800;
-
-      color: #151515;
-
-      margin-bottom: 20px;
+        font-size: 22px;
 
     }
 
-
-    .pix-data-icon {
-
-      width: 24px;
-
-      height: 24px;
-
-      border-radius: 50%;
-
-      background:
-        linear-gradient(
-          135deg,
-          #ff7a00,
-          #ff4b1f
-        );
-
-      flex-shrink: 0;
-
-      box-shadow:
-        0 3px 8px
-        rgba(255,105,0,.25);
-
-    }
-
-
-    /* ========================================
-       LINHAS DOS DADOS
-    ======================================== */
 
     .pix-row {
 
-      display: grid;
-
-      grid-template-columns:
-        90px
-        1fr;
-
-      align-items: center;
-
-      min-height: 48px;
-
-      border-bottom:
-        1px solid #dedede;
+        grid-template-columns:
+            78px
+            1fr;
 
     }
 
 
-    .pix-label {
+    .pix-label,
+    .pix-value {
 
-      font-size: 16px;
-
-      font-weight: 700;
-
-      color: #222;
+        font-size: 14px;
 
     }
 
 
     .pix-value {
 
-      text-align: right;
-
-      font-size: 16px;
-
-      font-weight: 700;
-
-      color: #202020;
-
-      word-break: break-word;
+        word-break: break-word;
 
     }
 
 
-    .pix-key {
+    .qr-container img {
 
-      color: #ff6900;
-
-    }
-
-
-    /* ========================================
-       BANCO INTER
-    ======================================== */
-
-    .pix-bank {
-
-      padding-top: 18px;
-
-    }
-
-
-    .inter-brand {
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      gap: 11px;
-
-    }
-
-
-    /*
-       Símbolo visual inspirado no "i"
-       do Banco Inter.
-    */
-
-    .inter-icon {
-
-      width: 44px;
-
-      height: 44px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      background: #ff6900;
-
-      border-radius: 12px;
-
-      box-shadow:
-        0 5px 12px
-        rgba(255,105,0,.25);
-
-      flex-shrink: 0;
-
-    }
-
-
-    .inter-icon::before {
-
-      content: "";
-
-      width: 12px;
-
-      height: 20px;
-
-      border-radius: 8px;
-
-      background: white;
-
-      display: block;
-
-    }
-
-
-    .inter-icon::after {
-
-      content: "";
-
-      position: absolute;
-
-      width: 5px;
-
-      height: 5px;
-
-      border-radius: 50%;
-
-      background: #ff6900;
-
-      margin-top: -16px;
-
-    }
-
-
-    .inter-text {
-
-      display: flex;
-
-      flex-direction: column;
-
-      justify-content: center;
+        width: 220px;
 
     }
 
 
     .inter-text strong {
 
-      font-size: 21px;
-
-      font-weight: 800;
-
-      color: #ff6900;
-
-      line-height: 1.1;
-
-    }
-
-
-    .inter-text small {
-
-      margin-top: 4px;
-
-      font-size: 13px;
-
-      color: #888;
-
-    }
-
-
-    /* ========================================
-       GORJETA
-    ======================================== */
-
-    .tip {
-
-      text-align: center;
-
-      background:
-        linear-gradient(
-          135deg,
-          #21083f,
-          #12071f
-        );
-
-    }
-
-
-    .heart {
-
-      font-size: 55px;
-
-      margin-bottom: 10px;
-
-    }
-
-
-    .tip h2 {
-
-      font-size: 27px;
-
-      margin-bottom: 15px;
-
-    }
-
-
-    .tip p {
-
-      font-size: 18px;
-
-      line-height: 1.5;
-
-      color: #eeeeee;
-
-    }
-
-
-    .highlight {
-
-      color: #ffd229;
-
-      font-weight: bold;
-
-      font-size: 21px;
-
-    }
-
-
-    /* ========================================
-       RODAPÉ
-    ======================================== */
-
-    footer {
-
-      text-align: center;
-
-      padding: 25px 10px 10px;
-
-      color: #ffd229;
-
-      font-size: 17px;
-
-      font-weight: bold;
-
-    }
-
-
-    /* ========================================
-       CELULAR
-    ======================================== */
-
-    @media (max-width: 450px) {
-
-      body {
-
-        padding: 15px 10px;
-
-      }
-
-
-      .hero {
-
-        padding: 22px 16px;
-
-      }
-
-
-      .hero-top {
-
-        gap: 10px;
-
-      }
-
-
-      .car-icon {
-
-        font-size: 42px;
-
-      }
-
-
-      h1 {
-
-        font-size: 26px;
-
-      }
-
-
-      .subtitle {
-
-        font-size: 16px;
-
-      }
-
-
-      .card {
-
-        padding: 18px;
-
-      }
-
-
-      .pix-title-main {
-
-        font-size: 25px;
-
-      }
-
-
-      .pix-data-title {
-
-        font-size: 22px;
-
-      }
-
-
-      .pix-row {
-
-        grid-template-columns:
-          82px
-          1fr;
-
-      }
-
-
-      .pix-label,
-      .pix-value {
-
-        font-size: 14px;
-
-      }
-
-
-      .pix-value {
-
-        white-space: normal;
-
-        word-break: break-word;
-
-      }
-
-
-      .qr-container img {
-
-        width: 220px;
-
-      }
-
-
-      .inter-text strong {
-
         font-size: 20px;
 
-      }
-
     }
 
-  </style>
+}
+
+</style>
 
 </head>
 
@@ -825,99 +890,101 @@
 <div class="container">
 
 
-  <!-- ========================================
-       APRESENTAÇÃO
-  ======================================== -->
+<!-- ======================================================
+     APRESENTAÇÃO
+====================================================== -->
 
-  <section class="hero">
+<section class="hero">
 
     <div class="hero-top">
 
-      <div class="car-icon">
-        🚗
-      </div>
+        <div class="car-icon">
+            🚗
+        </div>
 
-      <h1>
+        <h1>
 
-        Me chamo
+            Me chamo
 
-        <br>
+            <br>
 
-        <span class="yellow">
-          Amarildon
-        </span>
+            <span class="yellow">
+                Amarildon
+            </span>
 
-      </h1>
+        </h1>
 
     </div>
 
 
     <p class="subtitle">
 
-      Trabalho como
-      <strong>motorista de aplicativos</strong>
-      e todos os dias estou na estrada para levar você com segurança até seu destino.
+        Trabalho como
+        <strong>motorista de aplicativos</strong>
+        e todos os dias estou na estrada para levar você com segurança até seu destino.
 
     </p>
 
-  </section>
+</section>
 
 
-  <!-- ========================================
-       LOJINHA
-  ======================================== -->
 
-  <section class="card">
+<!-- ======================================================
+     LOJINHA
+====================================================== -->
+
+<section class="card">
 
     <div class="shop">
 
-      🍬
+        🍬
 
-      <div class="shop-separator"></div>
+        <div class="shop-separator"></div>
 
-      <div class="shop-title">
+        <div class="shop-title">
 
-        CONHEÇA MINHA LOJINHA!
+            CONHEÇA MINHA LOJINHA!
 
-      </div>
-
-
-      Durante sua viagem você também pode aproveitar alguns produtos da minha lojinha.
+        </div>
 
 
-      <br>
-      <br>
+        Durante sua viagem você também pode aproveitar alguns produtos da minha lojinha.
 
 
-      Ao comprar algo, você contribui para
+        <br>
+        <br>
 
-      <strong>
-        melhorar minha renda e me ajuda a conquistar meus objetivos.
-      </strong>
+
+        Ao comprar algo, você contribui para
+
+        <strong>
+            melhorar minha renda e me ajuda a conquistar meus objetivos.
+        </strong>
 
     </div>
 
-  </section>
+</section>
 
 
-  <!-- ========================================
-       PIX
-  ======================================== -->
 
-  <section class="card pix-card">
+<!-- ======================================================
+     PIX
+====================================================== -->
+
+<section class="card pix-card">
 
 
     <div class="pix-title-main">
 
-      📱 Faça um
-      <span>Pix</span>
+        📱 Faça um
+        <span>Pix</span>
 
     </div>
 
 
     <p class="instruction">
 
-      Escaneie o QR Code ou clique no botão abaixo para copiar o código Pix.
+        Escaneie o QR Code ou clique no botão abaixo para copiar o código Pix.
 
     </p>
 
@@ -926,272 +993,288 @@
 
     <div class="qr-container">
 
-      <img
-        src="qrcode.png"
-        alt="QR Code Pix Banco Inter"
-      >
+        <img
+            src="qrcode.png"
+            alt="QR Code Pix Banco Inter"
+        >
 
     </div>
 
 
-    <!-- BOTÃO COPIAR -->
+    <!-- COPIAR -->
 
     <button
-      class="copy-button"
-      onclick="copiarPix()"
+        class="copy-button"
+        onclick="copiarPix()"
     >
 
-      📋 COPIAR CÓDIGO PIX
+        📋 COPIAR CÓDIGO PIX
 
     </button>
 
 
-    <!-- CONFIRMAÇÃO -->
-
     <div
-      id="copied"
-      class="copied"
+        id="copied"
+        class="copied"
     >
 
-      ✅ Código Pix copiado!
+        ✅ Código Pix copiado!
 
-      <br>
+        <br>
 
-      Agora é só abrir seu banco e usar Pix Copia e Cola.
+        Agora é só abrir seu banco e usar Pix Copia e Cola.
 
     </div>
 
 
-    <!-- ========================================
+
+    <!-- ==================================================
          DADOS DO PIX
-    ======================================== -->
+    ================================================== -->
 
     <div class="pix-info">
 
 
-      <!-- TÍTULO -->
+        <!-- TÍTULO -->
 
-      <div class="pix-data-title">
+        <div class="pix-data-title">
 
-        <span class="pix-data-icon"></span>
+            <span class="pix-data-title-icon"></span>
 
-        <span>
-          Dados do Pix
-        </span>
-
-      </div>
-
-
-      <!-- CHAVE -->
-
-      <div class="pix-row">
-
-        <div class="pix-label">
-
-          Chave Pix
+            <span>
+                Dados do Pix
+            </span>
 
         </div>
 
 
-        <div class="pix-value pix-key">
 
-          31assis+inter@gmail.com
+        <!-- CHAVE -->
 
-        </div>
+        <div class="pix-row">
 
-      </div>
+            <div class="pix-label">
 
+                Chave Pix:
 
-      <!-- NOME -->
-
-      <div class="pix-row">
-
-        <div class="pix-label">
-
-          Nome
-
-        </div>
+            </div>
 
 
-        <div class="pix-value">
+            <div class="pix-value pix-key">
 
-          AMARILDON RIBEIRO DE ASSIS
+                31assis+inter@gmail.com
+
+            </div>
 
         </div>
 
-      </div>
 
 
-      <!-- BANCO -->
+        <!-- NOME -->
 
-      <div class="pix-bank">
+        <div class="pix-row">
 
-        <div class="inter-brand">
+            <div class="pix-label">
+
+                Nome:
+
+            </div>
 
 
-          <div class="inter-icon"></div>
+            <div class="pix-value">
 
+                AMARILDON RIBEIRO DE ASSIS
 
-          <div class="inter-text">
-
-            <strong>
-              Banco Inter
-            </strong>
-
-            <small>
-              Pagamento via Pix
-            </small>
-
-          </div>
-
+            </div>
 
         </div>
 
-      </div>
+
+
+        <!-- BANCO INTER -->
+
+        <div class="pix-bank">
+
+            <div class="inter-brand">
+
+
+                <div class="inter-logo">
+
+                    <div class="inter-rays"></div>
+
+                    <div class="inter-i">
+                        i
+                    </div>
+
+                </div>
+
+
+                <div class="inter-text">
+
+                    <strong>
+                        Inter
+                    </strong>
+
+                    <small>
+                        Pagamento via Pix
+                    </small>
+
+                </div>
+
+
+            </div>
+
+        </div>
 
 
     </div>
 
 
-  </section>
+</section>
 
 
-  <!-- ========================================
-       GORJETA
-  ======================================== -->
 
-  <section class="card tip">
+<!-- ======================================================
+     GORJETA
+====================================================== -->
+
+<section class="card tip">
 
 
     <div class="heart">
 
-      ❤️
+        ❤️
 
     </div>
 
 
     <h2>
 
-      Gostou da corrida?
+        Gostou da corrida?
 
     </h2>
 
 
     <p>
 
-      <span class="highlight">
+        <span class="highlight">
 
-        Qualquer valor faz a diferença!
+            Qualquer valor faz a diferença!
 
-      </span>
-
-
-      <br>
-      <br>
+        </span>
 
 
-      Sua gorjeta me ajuda muito e incentiva meu trabalho todos os dias.
+        <br>
+        <br>
 
 
-      <br>
-      <br>
+        Sua gorjeta me ajuda muito e incentiva meu trabalho todos os dias.
 
 
-      Obrigado pelo carinho e pela confiança! 🙏
+        <br>
+        <br>
+
+
+        Obrigado pelo carinho e pela confiança! 🙏
 
     </p>
 
 
-  </section>
+</section>
 
 
-  <!-- ========================================
-       RODAPÉ
-  ======================================== -->
 
-  <footer>
+<!-- ======================================================
+     RODAPÉ
+====================================================== -->
+
+<footer>
 
     💖 Sua presença já é especial! 💖
 
-  </footer>
+</footer>
 
 
 </div>
 
 
+
 <script>
 
 
-  /* ========================================
-     CÓDIGO PIX - BANCO INTER
-  ======================================== */
+/* ========================================================
+   PIX COPIA E COLA
+======================================================== */
 
-  const codigoPix =
-    "00020101021126450014br.gov.bcb.pix012331assis+inter@gmail.com5204000053039865802BR5920AMARILDON R DE ASSIS6008CURITIBA62070503***63046D83";
+const codigoPix =
+"00020101021126450014br.gov.bcb.pix012331assis+inter@gmail.com5204000053039865802BR5920AMARILDON R DE ASSIS6008CURITIBA62070503***63046D83";
 
 
-  /* ========================================
-     COPIAR PIX
-  ======================================== */
 
-  function copiarPix() {
+/* ========================================================
+   COPIAR PIX
+======================================================== */
+
+function copiarPix() {
 
 
     navigator.clipboard
-      .writeText(codigoPix)
+        .writeText(codigoPix)
 
-      .then(() => {
+        .then(() => {
 
-        document
-          .getElementById("copied")
-          .style.display = "block";
+            document
+                .getElementById("copied")
+                .style.display = "block";
 
-      })
+        })
 
-      .catch(() => {
-
-
-        const textarea =
-          document.createElement("textarea");
+        .catch(() => {
 
 
-        textarea.value = codigoPix;
+            const textarea =
+                document.createElement("textarea");
 
 
-        textarea.style.position =
-          "fixed";
+            textarea.value =
+                codigoPix;
 
 
-        textarea.style.opacity =
-          "0";
+            textarea.style.position =
+                "fixed";
 
 
-        document.body.appendChild(
-          textarea
-        );
+            textarea.style.opacity =
+                "0";
 
 
-        textarea.select();
+            document.body.appendChild(
+                textarea
+            );
 
 
-        document.execCommand("copy");
+            textarea.select();
 
 
-        document.body.removeChild(
-          textarea
-        );
+            document.execCommand(
+                "copy"
+            );
 
 
-        document
-          .getElementById("copied")
-          .style.display = "block";
+            document.body.removeChild(
+                textarea
+            );
 
 
-      });
+            document
+                .getElementById("copied")
+                .style.display = "block";
 
 
-  }
+        });
 
+
+}
 
 </script>
 
