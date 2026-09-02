@@ -172,6 +172,99 @@ h1 {
 
 
 /* =====================================================
+   GORJETA
+===================================================== */
+
+.tip {
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #21083f,
+            #12071f
+        );
+
+    padding: 28px 22px;
+
+}
+
+
+/* =====================================================
+   TÍTULO GORJETA
+===================================================== */
+
+.tip-title {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.tip-heart {
+
+    font-size: 40px;
+
+    line-height: 1;
+
+}
+
+
+.tip h2 {
+
+    font-size: 27px;
+
+    margin: 0;
+
+    color: white;
+
+}
+
+
+/* =====================================================
+   DESTAQUE GORJETA
+===================================================== */
+
+.highlight {
+
+    color: #ffd229;
+
+    font-weight: bold;
+
+    font-size: 21px;
+
+    margin-bottom: 28px;
+
+}
+
+
+/* =====================================================
+   TEXTOS GORJETA
+===================================================== */
+
+.tip p {
+
+    font-size: 18px;
+
+    line-height: 1.5;
+
+    color: #eeeeee;
+
+    margin-top: 22px;
+
+}
+
+
+/* =====================================================
    LOJINHA
 ===================================================== */
 
@@ -440,7 +533,7 @@ h1 {
 
 
 /* =====================================================
-   LOGO INTER NO TÍTULO
+   LOGO INTER
 ===================================================== */
 
 .inter-logo-title {
@@ -457,15 +550,20 @@ h1 {
 
 
 /* =====================================================
-   LINHAS CHAVE / NOME
+   LINHAS DOS DADOS
 ===================================================== */
 
 .pix-row {
 
     display: grid;
 
+    /*
+       Primeira coluna = rótulos
+       Segunda coluna = valores
+    */
+
     grid-template-columns:
-        90px
+        125px
         minmax(0, 1fr);
 
     align-items: center;
@@ -486,12 +584,12 @@ h1 {
 
     color: #202020;
 
+    text-align: left;
+
 }
 
 
 .pix-value {
-
-    text-align: right;
 
     font-size: 16px;
 
@@ -499,9 +597,9 @@ h1 {
 
     color: #202020;
 
-    white-space: normal;
+    text-align: left;
 
-    overflow-wrap: anywhere;
+    white-space: nowrap;
 
 }
 
@@ -573,121 +671,7 @@ h1 {
 
 
 /* =====================================================
-   GORJETA
-===================================================== */
-
-.tip {
-
-    text-align: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #21083f,
-            #12071f
-        );
-
-    padding:
-        28px 22px;
-
-}
-
-
-/* =====================================================
-   TÍTULO DA GORJETA
-===================================================== */
-
-.tip-title {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 12px;
-
-    margin-bottom: 12px;
-
-}
-
-
-.tip-heart {
-
-    font-size: 40px;
-
-    line-height: 1;
-
-}
-
-
-.tip h2 {
-
-    font-size: 27px;
-
-    margin: 0;
-
-    color: white;
-
-}
-
-
-/* =====================================================
-   DESTAQUE
-===================================================== */
-
-.highlight {
-
-    color: #ffd229;
-
-    font-weight: bold;
-
-    font-size: 21px;
-
-    margin-bottom: 28px;
-
-}
-
-
-/* =====================================================
-   TEXTO DA GORJETA
-===================================================== */
-
-.tip p {
-
-    font-size: 18px;
-
-    line-height: 1.5;
-
-    color: #eeeeee;
-
-    margin-top: 22px;
-
-}
-
-
-/* =====================================================
-   RODAPÉ
-===================================================== */
-
-footer {
-
-    text-align: center;
-
-    padding:
-        20px 10px 10px;
-
-    color: #ffd229;
-
-    font-size: 17px;
-
-    font-weight: bold;
-
-}
-
-
-/* =====================================================
-   RESPONSIVO
+   CELULAR
 ===================================================== */
 
 @media (max-width: 450px) {
@@ -744,59 +728,7 @@ footer {
     }
 
 
-    .pix-title-main {
-
-        font-size: 25px;
-
-    }
-
-
-    .pix-data-title {
-
-        font-size: 22px;
-
-    }
-
-
-    .inter-logo-title {
-
-        width: 42px;
-
-        height: 37px;
-
-    }
-
-
-    .pix-row {
-
-        grid-template-columns:
-            78px
-            minmax(0, 1fr);
-
-    }
-
-
-    .pix-label,
-    .pix-value {
-
-        font-size: 14px;
-
-    }
-
-
-    .pix-value {
-
-        overflow-wrap: anywhere;
-
-    }
-
-
-    .qr-container img {
-
-        width: 220px;
-
-    }
-
+    /* GORJETA */
 
     .tip {
 
@@ -837,6 +769,76 @@ footer {
     .tip p {
 
         font-size: 16px;
+
+    }
+
+
+    /* PIX */
+
+    .pix-title-main {
+
+        font-size: 25px;
+
+    }
+
+
+    .pix-data-title {
+
+        font-size: 22px;
+
+    }
+
+
+    .inter-logo-title {
+
+        width: 42px;
+
+        height: 37px;
+
+    }
+
+
+    /*
+       No celular diminuímos a coluna,
+       mas mantemos o alinhamento.
+    */
+
+    .pix-row {
+
+        grid-template-columns:
+            82px
+            minmax(0, 1fr);
+
+    }
+
+
+    .pix-label,
+    .pix-value {
+
+        font-size: 14px;
+
+    }
+
+
+    .pix-value {
+
+        white-space: normal;
+
+        overflow-wrap: anywhere;
+
+    }
+
+
+    .qr-container img {
+
+        width: 220px;
+
+    }
+
+
+    .inter-text strong {
+
+        font-size: 20px;
 
     }
 
@@ -894,14 +896,62 @@ footer {
 
 
 <!-- =====================================================
+     GORJETA
+===================================================== -->
+
+<section class="card tip">
+
+
+    <div class="tip-title">
+
+        <span class="tip-heart">
+            ❤️
+        </span>
+
+
+        <h2>
+            Gostou da corrida?
+        </h2>
+
+    </div>
+
+
+    <div class="highlight">
+
+        Qualquer valor faz a diferença!
+
+    </div>
+
+
+    <p>
+
+        Sua gorjeta me ajuda muito e incentiva meu trabalho todos os dias.
+
+    </p>
+
+
+    <p>
+
+        Obrigado pelo carinho e pela confiança! 🙏
+
+    </p>
+
+
+</section>
+
+
+
+<!-- =====================================================
      LOJINHA
 ===================================================== -->
 
 <section class="card">
 
+
     <div class="shop">
 
         🍬
+
 
         <div class="shop-separator"></div>
 
@@ -927,6 +977,7 @@ footer {
         </strong>
 
     </div>
+
 
 </section>
 
@@ -1005,7 +1056,7 @@ footer {
     <div class="pix-info">
 
 
-        <!-- LOGO + TÍTULO -->
+        <!-- TÍTULO + LOGO INTER -->
 
         <div class="pix-data-title">
 
@@ -1030,7 +1081,7 @@ footer {
 
             <div class="pix-label">
 
-                Chave Pix
+                Chave Pix:
 
             </div>
 
@@ -1051,7 +1102,7 @@ footer {
 
             <div class="pix-label">
 
-                Nome
+                Nome:
 
             </div>
 
@@ -1066,7 +1117,7 @@ footer {
 
 
 
-        <!-- BANCO -->
+        <!-- BANCO INTER -->
 
         <div class="pix-bank">
 
@@ -1093,69 +1144,6 @@ footer {
 
 
 </section>
-
-
-
-<!-- =====================================================
-     GORJETA
-===================================================== -->
-
-<section class="card tip">
-
-
-    <div class="tip-title">
-
-
-        <span class="tip-heart">
-            ❤️
-        </span>
-
-
-        <h2>
-            Gostou da corrida?
-        </h2>
-
-
-    </div>
-
-
-
-    <div class="highlight">
-
-        Qualquer valor faz a diferença!
-
-    </div>
-
-
-
-    <p>
-
-        Sua gorjeta me ajuda muito e incentiva meu trabalho todos os dias.
-
-    </p>
-
-
-
-    <p>
-
-        Obrigado pelo carinho e pela confiança! 🙏
-
-    </p>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     RODAPÉ
-===================================================== -->
-
-<footer>
-
-    Sua presença já é especial! 💖
-
-</footer>
 
 
 </div>
@@ -1185,13 +1173,12 @@ function copiarPix() {
 
         .then(() => {
 
-
             document
                 .getElementById("copied")
                 .style.display = "block";
 
-
         })
+
 
         .catch(() => {
 
